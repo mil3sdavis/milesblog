@@ -90,7 +90,7 @@ pagination.pagerSize = 5
     words = "words"
 
     [languages.en.params.logo]
-      logoText = "re-Terminal"
+      logoText = "Blog"
       logoHomeLink = "/"
 
     [languages.en.menu]

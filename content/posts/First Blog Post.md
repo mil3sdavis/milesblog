@@ -1,6 +1,6 @@
 ---
 title: 001 - First Blog Post
-date: 2025-11-29
+date: 2025-11-28
 draft: false
 tags:
   - blog

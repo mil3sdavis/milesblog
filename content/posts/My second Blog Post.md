@@ -1,5 +1,5 @@
 ---
-title: My Second Post
+title: 002 - My Second Post
 date: 2025-11-29
 draft: false
 tags:

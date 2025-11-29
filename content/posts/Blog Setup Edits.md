@@ -1,5 +1,5 @@
 ---
-title: Blog Setup Edits
+title: 003 - Blog Setup Edits
 date: 2025-11-29
 draft: false
 tags:

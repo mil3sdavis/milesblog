@@ -149,44 +149,7 @@
     
       <article class="post on-list">
         <h1 class="post-title">
-          <a href="/posts/blog-setup-edits/">Blog Setup Edits</a>
-        </h1>
-        <div class="post-meta"><time class="post-date">2025-11-29</time></div>
-
-        
-          <span class="post-tags">
-            
-            #<a href="/tags/blog/">blog</a>&nbsp;
-            
-          </span>
-        
-
-        
-
-
-
-        <div class="post-content">
-          
-            <p>This blog was setup based on instructions provided by #NetworkChuck @ <a href="https://www.youtube.com/watch?v=dnE7c0ELEH8">https://www.youtube.com/watch?v=dnE7c0ELEH8</a></p>
-<p>I had to made a a few edits to his process/script to make it work for what I wanted to do. He wrote a python script which was intended to transfer images from an #Obsidian vault, but it only accounted for PNG files, I modified the regex to account for JPEG/JPG and GIFs also.</p>
-<p>Regex edit for image.py</p>
-<pre tabindex="0"><code>        # Step 2: Find all image links in the format ![Image Description](/images/Pasted%20image%20...%20.png)
-        #images = re.findall(r&#39;\[\[([^]]*\.png)\]\]&#39;, content)
-        images = re.findall(r&#39;\[\[([^]]*\.(?:png|jpg|jpeg|gif))\]\]&#39;, content, re.IGNORECASE) 
-</code></pre><p>NetworkChuck also didn&rsquo;t explain the process for setting up auto deploy on Hostinger which requires setting up a webhook from Hostinger that is triggered when a post is uploaded to GitHub.</p>
-          
-        </div>
-
-        
-          <div>
-            <a class="read-more button" href="/posts/blog-setup-edits/">Read more →</a>
-          </div>
-        
-      </article>
-    
-      <article class="post on-list">
-        <h1 class="post-title">
-          <a href="/posts/first-blog-post/">First Blog Post</a>
+          <a href="/posts/first-blog-post/">001 - First Blog Post</a>
         </h1>
         <div class="post-meta"><time class="post-date">2025-11-29</time></div>
 
@@ -219,7 +182,7 @@
     
       <article class="post on-list">
         <h1 class="post-title">
-          <a href="/posts/my-second-blog-post/">My Second Post</a>
+          <a href="/posts/my-second-blog-post/">002 - My Second Post</a>
         </h1>
         <div class="post-meta"><time class="post-date">2025-11-29</time></div>
 
@@ -247,6 +210,43 @@
         
           <div>
             <a class="read-more button" href="/posts/my-second-blog-post/">Read more →</a>
+          </div>
+        
+      </article>
+    
+      <article class="post on-list">
+        <h1 class="post-title">
+          <a href="/posts/blog-setup-edits/">003 - Blog Setup Edits</a>
+        </h1>
+        <div class="post-meta"><time class="post-date">2025-11-29</time></div>
+
+        
+          <span class="post-tags">
+            
+            #<a href="/tags/blog/">blog</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+
+
+        <div class="post-content">
+          
+            <p>This blog was setup based on instructions provided by #NetworkChuck @ <a href="https://www.youtube.com/watch?v=dnE7c0ELEH8">https://www.youtube.com/watch?v=dnE7c0ELEH8</a></p>
+<p>I had to made a a few edits to his process/script to make it work for what I wanted to do. He wrote a python script which was intended to transfer images from an #Obsidian vault, but it only accounted for PNG files, I modified the regex to account for JPEG/JPG and GIFs also.</p>
+<p>Regex edit for image.py</p>
+<pre tabindex="0"><code>        # Step 2: Find all image links in the format ![Image Description](/images/Pasted%20image%20...%20.png)
+        #images = re.findall(r&#39;\[\[([^]]*\.png)\]\]&#39;, content)
+        images = re.findall(r&#39;\[\[([^]]*\.(?:png|jpg|jpeg|gif))\]\]&#39;, content, re.IGNORECASE) 
+</code></pre><p>NetworkChuck also didn&rsquo;t explain the process for setting up auto deploy on Hostinger which requires setting up a webhook from Hostinger that is triggered when a post is uploaded to GitHub.</p>
+          
+        </div>
+
+        
+          <div>
+            <a class="read-more button" href="/posts/blog-setup-edits/">Read more →</a>
           </div>
         
       </article>

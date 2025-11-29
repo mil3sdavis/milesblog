@@ -1,5 +1,5 @@
 ---
-title: First Blog Post
+title: 001 - First Blog Post
 date: 2025-11-29
 draft: false
 tags:

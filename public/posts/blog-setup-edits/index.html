@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Blog Setup Edits :: </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="This blog was setup based on instructions provided by #NetworkChuck @ https://www.youtube.com/watch?v=dnE7c0ELEH8
+I had to made a a few edits to his process/script to make it work for what I wanted to do. He wrote a python script which was intended to transfer images from an #Obsidian vault, but it only accounted for PNG files, I modified the regex to account for JPEG/JPG and GIFs also.
+Regex edit for image.py
+# Step 2: Find all image links in the format ![Image Description](/images/Pasted%20image%20...%20.png)#images = re.findall(r&#39;\[\[([^]]*\.png)\]\]&#39;, content)images = re.findall(r&#39;\[\[([^]]*\.(?:png|jpg|jpeg|gif))\]\]&#39;, content, re.IGNORECASE) NetworkChuck also didn&rsquo;t explain the process for setting up auto deploy on Hostinger which requires setting up a webhook from Hostinger that is triggered when a post is uploaded to GitHub.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="/posts/blog-setup-edits/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/img/theme-colors/blue.png">
+  <link rel="apple-touch-icon" href="/img/theme-colors/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Blog Setup Edits">
+<meta property="og:description" content="This blog was setup based on instructions provided by #NetworkChuck @ https://www.youtube.com/watch?v=dnE7c0ELEH8
+I had to made a a few edits to his process/script to make it work for what I wanted to do. He wrote a python script which was intended to transfer images from an #Obsidian vault, but it only accounted for PNG files, I modified the regex to account for JPEG/JPG and GIFs also.
+Regex edit for image.py
+# Step 2: Find all image links in the format ![Image Description](/images/Pasted%20image%20...%20.png)#images = re.findall(r&#39;\[\[([^]]*\.png)\]\]&#39;, content)images = re.findall(r&#39;\[\[([^]]*\.(?:png|jpg|jpeg|gif))\]\]&#39;, content, re.IGNORECASE) NetworkChuck also didn&rsquo;t explain the process for setting up auto deploy on Hostinger which requires setting up a webhook from Hostinger that is triggered when a post is uploaded to GitHub.
+" />
+<meta property="og:url" content="/posts/blog-setup-edits/" />
+<meta property="og:site_name" content="" />
+
+  
+    <meta property="og:image" content="/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2025-11-29 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</head>
+<body class="blue">
+
+
+
+
+<div class="container headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    re-Terminal
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/showcase">Showcase</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+        
+          <li><a href="/showcase" >Showcase</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/blog-setup-edits/">Blog Setup Edits</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2025-11-29</time>
+    
+</div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/blog/">blog</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+
+  
+
+  <div class="post-content"><div>
+        <p>This blog was setup based on instructions provided by #NetworkChuck @ <a href="https://www.youtube.com/watch?v=dnE7c0ELEH8">https://www.youtube.com/watch?v=dnE7c0ELEH8</a></p>
+<p>I had to made a a few edits to his process/script to make it work for what I wanted to do. He wrote a python script which was intended to transfer images from an #Obsidian vault, but it only accounted for PNG files, I modified the regex to account for JPEG/JPG and GIFs also.</p>
+<p>Regex edit for image.py</p>
+<pre tabindex="0"><code>        # Step 2: Find all image links in the format ![Image Description](/images/Pasted%20image%20...%20.png)
+        #images = re.findall(r&#39;\[\[([^]]*\.png)\]\]&#39;, content)
+        images = re.findall(r&#39;\[\[([^]]*\.(?:png|jpg|jpeg|gif))\]\]&#39;, content, re.IGNORECASE) 
+</code></pre><p>NetworkChuck also didn&rsquo;t explain the process for setting up auto deploy on Hostinger which requires setting up a webhook from Hostinger that is triggered when a post is uploaded to GitHub.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/first-blog-post/">
+                <span class="button__text">First Blog Post</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2025 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

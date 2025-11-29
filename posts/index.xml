@@ -22,5 +22,18 @@
 </content>
     </item>
     
+    <item>
+      <title>My Second Post</title>
+      <link>/posts/my-second-blog-post/</link>
+      <pubDate>Sat, 29 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/my-second-blog-post/</guid>
+      <description>&lt;p&gt;this is another post&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;its-alive&#34;&gt;IT&amp;rsquo;S ALIVE!!!!!!&lt;/h3&gt;</description>
+      <content>&lt;p&gt;this is another post&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;its-alive&#34;&gt;IT&amp;rsquo;S ALIVE!!!!!!&lt;/h3&gt;
+</content>
+    </item>
+    
   </channel>
 </rss>

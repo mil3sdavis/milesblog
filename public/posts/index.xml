@@ -6,7 +6,7 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 29 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Nov 2025 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>001 - First Blog Post</title>
       <link>/posts/first-blog-post/</link>
@@ -32,29 +32,6 @@
 &lt;h3 id=&#34;its-alive&#34;&gt;IT&amp;rsquo;S ALIVE!!!!!!&lt;/h3&gt;</description>
       <content>&lt;p&gt;this is another post&amp;hellip;&lt;/p&gt;
 &lt;h3 id=&#34;its-alive&#34;&gt;IT&amp;rsquo;S ALIVE!!!!!!&lt;/h3&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>003 - Blog Setup Edits</title>
-      <link>/posts/blog-setup-edits/</link>
-      <pubDate>Sat, 29 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/blog-setup-edits/</guid>
-      <description>&lt;p&gt;This blog was setup based on instructions provided by #NetworkChuck @ &lt;a href=&#34;https://www.youtube.com/watch?v=dnE7c0ELEH8&#34;&gt;https://www.youtube.com/watch?v=dnE7c0ELEH8&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;I had to made a a few edits to his process/script to make it work for what I wanted to do. He wrote a python script which was intended to transfer images from an #Obsidian vault, but it only accounted for PNG files, I modified the regex to account for JPEG/JPG and GIFs also.&lt;/p&gt;
-&lt;p&gt;Regex edit for image.py&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;        # Step 2: Find all image links in the format ![Image Description](/images/Pasted%20image%20...%20.png)
-        #images = re.findall(r&amp;#39;\[\[([^]]*\.png)\]\]&amp;#39;, content)
-        images = re.findall(r&amp;#39;\[\[([^]]*\.(?:png|jpg|jpeg|gif))\]\]&amp;#39;, content, re.IGNORECASE) 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;NetworkChuck also didn&amp;rsquo;t explain the process for setting up auto deploy on Hostinger which requires setting up a webhook from Hostinger that is triggered when a post is uploaded to GitHub.&lt;/p&gt;</description>
-      <content>&lt;p&gt;This blog was setup based on instructions provided by #NetworkChuck @ &lt;a href=&#34;https://www.youtube.com/watch?v=dnE7c0ELEH8&#34;&gt;https://www.youtube.com/watch?v=dnE7c0ELEH8&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;I had to made a a few edits to his process/script to make it work for what I wanted to do. He wrote a python script which was intended to transfer images from an #Obsidian vault, but it only accounted for PNG files, I modified the regex to account for JPEG/JPG and GIFs also.&lt;/p&gt;
-&lt;p&gt;Regex edit for image.py&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;        # Step 2: Find all image links in the format ![Image Description](/images/Pasted%20image%20...%20.png)
-        #images = re.findall(r&amp;#39;\[\[([^]]*\.png)\]\]&amp;#39;, content)
-        images = re.findall(r&amp;#39;\[\[([^]]*\.(?:png|jpg|jpeg|gif))\]\]&amp;#39;, content, re.IGNORECASE) 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;NetworkChuck also didn&amp;rsquo;t explain the process for setting up auto deploy on Hostinger which requires setting up a webhook from Hostinger that is triggered when a post is uploaded to GitHub.&lt;/p&gt;
 </content>
     </item>
     

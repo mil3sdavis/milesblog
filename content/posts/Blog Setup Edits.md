@@ -1,6 +1,6 @@
 ---
 title: 003 - Blog Setup Edits
-date: 2025-11-29
+date: 2025-11-30
 draft: false
 tags:
   - blog

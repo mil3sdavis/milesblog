@@ -50,11 +50,15 @@
       
       <guid>/posts/first-blog-post/</guid>
       <description>&lt;p&gt;This is my first blog post&amp;hellip; &amp;ldquo;Hello World!&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;!&lt;img src=&#34;/images/581786564_10102380794447054_525479171988765602_n.jpg&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
-&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251129112637.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;</description>
+&lt;p&gt;This is a jpg&amp;hellip;
+!&lt;img src=&#34;/images/581786564_10102380794447054_525479171988765602_n.jpg&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This is a png.
+!&lt;img src=&#34;/images/Pasted%20image%2020251129112637.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;</description>
       <content>&lt;p&gt;This is my first blog post&amp;hellip; &amp;ldquo;Hello World!&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;!&lt;img src=&#34;/images/581786564_10102380794447054_525479171988765602_n.jpg&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
-&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251129112637.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This is a jpg&amp;hellip;
+!&lt;img src=&#34;/images/581786564_10102380794447054_525479171988765602_n.jpg&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This is a png.
+!&lt;img src=&#34;/images/Pasted%20image%2020251129112637.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 </content>
     </item>
     

@@ -1,6 +1,6 @@
 ---
 title: 002 - My Second Post
-date: 2025-11-27
+date: 2025-11-28
 draft: false
 tags:
   - blog

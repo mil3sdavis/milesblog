@@ -31,9 +31,22 @@
     </item>
     
     <item>
+      <title>002 - My Second Post</title>
+      <link>/posts/my-second-blog-post/</link>
+      <pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/my-second-blog-post/</guid>
+      <description>&lt;p&gt;this is another post&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;its-alive&#34;&gt;IT&amp;rsquo;S ALIVE!!!!!!&lt;/h3&gt;</description>
+      <content>&lt;p&gt;this is another post&amp;hellip;&lt;/p&gt;
+&lt;h3 id=&#34;its-alive&#34;&gt;IT&amp;rsquo;S ALIVE!!!!!!&lt;/h3&gt;
+</content>
+    </item>
+    
+    <item>
       <title>001 - First Blog Post</title>
       <link>/posts/first-blog-post/</link>
-      <pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
       
       <guid>/posts/first-blog-post/</guid>
       <description>&lt;p&gt;This is my first blog post&amp;hellip; &amp;ldquo;Hello World!&amp;rdquo;&lt;/p&gt;
@@ -42,19 +55,6 @@
       <content>&lt;p&gt;This is my first blog post&amp;hellip; &amp;ldquo;Hello World!&amp;rdquo;&lt;/p&gt;
 &lt;p&gt;!&lt;img src=&#34;/images/581786564_10102380794447054_525479171988765602_n.jpg&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251129112637.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>002 - My Second Post</title>
-      <link>/posts/my-second-blog-post/</link>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/my-second-blog-post/</guid>
-      <description>&lt;p&gt;this is another post&amp;hellip;&lt;/p&gt;
-&lt;h3 id=&#34;its-alive&#34;&gt;IT&amp;rsquo;S ALIVE!!!!!!&lt;/h3&gt;</description>
-      <content>&lt;p&gt;this is another post&amp;hellip;&lt;/p&gt;
-&lt;h3 id=&#34;its-alive&#34;&gt;IT&amp;rsquo;S ALIVE!!!!!!&lt;/h3&gt;
 </content>
     </item>
     

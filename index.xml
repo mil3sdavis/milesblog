@@ -8,6 +8,33 @@
     <language>en</language>
     <lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>PWM Wind Simulation PCB Design</title>
+      <link>/posts/pwm-wind-simulation-pcb-design/</link>
+      <pubDate>Mon, 01 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/pwm-wind-simulation-pcb-design/</guid>
+      <description>&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
+&lt;p&gt;I wanted to add Wind simulation to my Sim Racing setup. As you speed up/down you get more/less wind in your face, and you get directional wind in the corners. This helps with immersion by giving a sense of speed. The PC connects to the Arduino which provides the PWM control for the fans, and the fans are then powered by an external 12v power supply.&lt;/p&gt;
+&lt;p&gt;Software and hardware designs already exist for this, but they require that you build your own interface using an Arduino.
+&lt;a href=&#34;https://www.simhubdash.com/&#34;&gt;SimHub&lt;/a&gt; is the software that most people use to integrate Arduino microcontrollers with sim racing software titles. SimHub allows you to choose and configure the type of Arduino you would like to use and automatically generates the Arduino Sketch file to interface with the hardware setup. The following image shows the Arduino design for a 2 fan setup using an &lt;a href=&#34;https://www.amazon.com/ATmega32U4-Micro-USB-Development-Compatible-ATmega328/dp/B07PHK8SMR&#34;&gt;Arduino ProMicro&lt;/a&gt;.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;problem&#34;&gt;Problem&lt;/h1&gt;
+&lt;p&gt;I wanted to add Wind simulation to my Sim Racing setup. As you speed up/down you get more/less wind in your face, and you get directional wind in the corners. This helps with immersion by giving a sense of speed. The PC connects to the Arduino which provides the PWM control for the fans, and the fans are then powered by an external 12v power supply.&lt;/p&gt;
+&lt;p&gt;Software and hardware designs already exist for this, but they require that you build your own interface using an Arduino.
+&lt;a href=&#34;https://www.simhubdash.com/&#34;&gt;SimHub&lt;/a&gt; is the software that most people use to integrate Arduino microcontrollers with sim racing software titles. SimHub allows you to choose and configure the type of Arduino you would like to use and automatically generates the Arduino Sketch file to interface with the hardware setup. The following image shows the Arduino design for a 2 fan setup using an &lt;a href=&#34;https://www.amazon.com/ATmega32U4-Micro-USB-Development-Compatible-ATmega328/dp/B07PHK8SMR&#34;&gt;Arduino ProMicro&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251201110508.png&#34; alt=&#34;Image Description&#34;&gt;
+I implemented this design on some protoboard and got a working protype. The fans used are 12V PC case fans and require their own power supply. In this design, the +12V and GND pins of the fans are connected to an external 12V power supply and the sense pins on the fan are left unconnected, and the PWM pin is connected to the corresponding output on the Arduino.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251201110047.jpg&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The Prototype worked very well, but was not what I would consider pretty. So I took this as an opportunity to learn how to use some PCB design software. For this project I used &lt;a href=&#34;https://easyeda.com/&#34;&gt;EasyEDA&lt;/a&gt;to design the PCB and &lt;a href=&#34;https://www.pcbway.com/&#34;&gt;PCBWay&lt;/a&gt;to manufacture the boards. The image below is the schematic design of the board.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251201113215.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This is the actual board layout with routing complete.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251201113244.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;After routing was complete, I exported the Gerber files for the design and submitted them to PCBWay for manufacture.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251201110056.jpg&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In a future post, I will populate the board and test it.&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
       <title>003 - Blog Setup Edits</title>
       <link>/posts/blog-setup-edits/</link>
       <pubDate>Sat, 29 Nov 2025 00:00:00 +0000</pubDate>

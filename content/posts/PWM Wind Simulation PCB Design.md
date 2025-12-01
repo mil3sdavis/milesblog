@@ -1,7 +1,7 @@
 ---
 title: PWM Wind Simulation PCB Design
 date: 2025-12-01
-draft: true
+draft: false
 tags:
   - blog
   - simracing

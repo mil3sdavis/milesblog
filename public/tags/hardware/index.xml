@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on </title>
-    <link>/tags/blog/</link>
-    <description>Recent content in Blog on </description>
+    <title>Hardware on </title>
+    <link>/tags/hardware/</link>
+    <description>Recent content in Hardware on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="/tags/hardware/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>PWM Wind Simulation PCB Design</title>
       <link>/posts/pwm-wind-simulation-pcb-design/</link>
@@ -31,61 +31,6 @@ I implemented this design on some protoboard and got a working protype. The fans
 &lt;p&gt;After routing was complete, I exported the Gerber files for the design and submitted them to PCBWay for manufacture.&lt;/p&gt;
 &lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251201110056.jpg&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In a future post, I will populate the board and test it.&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>003 - Blog Setup Edits</title>
-      <link>/posts/blog-setup-edits/</link>
-      <pubDate>Sat, 29 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/blog-setup-edits/</guid>
-      <description>&lt;p&gt;This blog was setup based on instructions provided by #NetworkChuck @ &lt;a href=&#34;https://www.youtube.com/watch?v=dnE7c0ELEH8&#34;&gt;https://www.youtube.com/watch?v=dnE7c0ELEH8&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;I had to made a a few edits to his process/script to make it work for what I wanted to do. He wrote a python script which was intended to transfer images from an #Obsidian vault, but it only accounted for PNG files, I modified the regex to account for JPEG/JPG and GIFs also.&lt;/p&gt;
-&lt;p&gt;Regex edit for image.py&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;        # Step 2: Find all image links in the format ![Image Description](/images/Pasted%20image%20...%20.png)
-        #images = re.findall(r&amp;#39;\[\[([^]]*\.png)\]\]&amp;#39;, content)
-        images = re.findall(r&amp;#39;\[\[([^]]*\.(?:png|jpg|jpeg|gif))\]\]&amp;#39;, content, re.IGNORECASE) 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;NetworkChuck also didn&amp;rsquo;t explain the process for setting up auto deploy on Hostinger which requires setting up a webhook from Hostinger that is triggered when a post is uploaded to GitHub.&lt;/p&gt;</description>
-      <content>&lt;p&gt;This blog was setup based on instructions provided by #NetworkChuck @ &lt;a href=&#34;https://www.youtube.com/watch?v=dnE7c0ELEH8&#34;&gt;https://www.youtube.com/watch?v=dnE7c0ELEH8&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;I had to made a a few edits to his process/script to make it work for what I wanted to do. He wrote a python script which was intended to transfer images from an #Obsidian vault, but it only accounted for PNG files, I modified the regex to account for JPEG/JPG and GIFs also.&lt;/p&gt;
-&lt;p&gt;Regex edit for image.py&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;        # Step 2: Find all image links in the format ![Image Description](/images/Pasted%20image%20...%20.png)
-        #images = re.findall(r&amp;#39;\[\[([^]]*\.png)\]\]&amp;#39;, content)
-        images = re.findall(r&amp;#39;\[\[([^]]*\.(?:png|jpg|jpeg|gif))\]\]&amp;#39;, content, re.IGNORECASE) 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;NetworkChuck also didn&amp;rsquo;t explain the process for setting up auto deploy on Hostinger which requires setting up a webhook from Hostinger that is triggered when a post is uploaded to GitHub.&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>002 - My Second Post</title>
-      <link>/posts/my-second-blog-post/</link>
-      <pubDate>Fri, 28 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/my-second-blog-post/</guid>
-      <description>&lt;p&gt;this is another post&amp;hellip;&lt;/p&gt;
-&lt;h3 id=&#34;its-alive&#34;&gt;IT&amp;rsquo;S ALIVE!!!!!!&lt;/h3&gt;</description>
-      <content>&lt;p&gt;this is another post&amp;hellip;&lt;/p&gt;
-&lt;h3 id=&#34;its-alive&#34;&gt;IT&amp;rsquo;S ALIVE!!!!!!&lt;/h3&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>001 - First Blog Post</title>
-      <link>/posts/first-blog-post/</link>
-      <pubDate>Thu, 27 Nov 2025 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/first-blog-post/</guid>
-      <description>&lt;p&gt;This is my first blog post&amp;hellip; &amp;ldquo;Hello World!&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;This is a jpg&amp;hellip;
-!&lt;img src=&#34;/images/581786564_10102380794447054_525479171988765602_n.jpg&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
-&lt;p&gt;This is a png.
-!&lt;img src=&#34;/images/Pasted%20image%2020251129112637.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;</description>
-      <content>&lt;p&gt;This is my first blog post&amp;hellip; &amp;ldquo;Hello World!&amp;rdquo;&lt;/p&gt;
-&lt;p&gt;This is a jpg&amp;hellip;
-!&lt;img src=&#34;/images/581786564_10102380794447054_525479171988765602_n.jpg&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
-&lt;p&gt;This is a png.
-!&lt;img src=&#34;/images/Pasted%20image%2020251129112637.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 </content>
     </item>
     

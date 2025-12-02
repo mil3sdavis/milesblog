@@ -1,6 +1,6 @@
 ---
 title: Underground Wire Locator
-date: 0205-12-02
+date: 2025-12-02
 draft: false
 tags:
   - blog

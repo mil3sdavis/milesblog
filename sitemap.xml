@@ -3,24 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
+    <lastmod>2025-12-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/blog/</loc>
-    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/hardware/</loc>
-    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
+    <lastmod>2025-12-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/</loc>
+    <lastmod>2025-12-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2025-12-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/tools/</loc>
+    <lastmod>2025-12-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/underground-wire-locator/</loc>
+    <lastmod>2025-12-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/hardware/</loc>
     <lastmod>2025-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/pwm-wind-simulation-pcb-design/</loc>
     <lastmod>2025-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/simracing/</loc>
-    <lastmod>2025-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2025-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/blog-setup-edits/</loc>
@@ -34,12 +40,6 @@
   </url><url>
     <loc>/posts/first-blog-post/</loc>
     <lastmod>2025-11-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/tools/</loc>
-    <lastmod>0205-12-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/posts/underground-wire-locator/</loc>
-    <lastmod>0205-12-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/untitled/</loc>
   </url><url>

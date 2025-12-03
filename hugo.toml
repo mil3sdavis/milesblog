@@ -74,7 +74,7 @@ pagination.pagerSize = 5
 [languages]
   [languages.en.params]
     languageName = "English"
-    title = Blog"
+    title = "Blog"
     subtitle = "Documenting my projects and thoughts"
     owner = ""
     keywords = ""

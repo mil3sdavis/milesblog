@@ -6,7 +6,35 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 02 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 04 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PCB Project part 2</title>
+      <link>/posts/pcb-project-part-2/</link>
+      <pubDate>Thu, 04 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/pcb-project-part-2/</guid>
+      <description>&lt;h1 id=&#34;populated-board&#34;&gt;Populated Board&lt;/h1&gt;
+&lt;p&gt;I populated the board with the Arduino board and the pin headers. Assembly was very straight forward. I added pin headers for the GND and +12V lines for testing purposes, in the future I&amp;rsquo;ll either add a barrel connector or just wire the power supply directly to it.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251204102135.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;the-test&#34;&gt;The Test&lt;/h1&gt;
+&lt;p&gt;I used &lt;a href=&#34;https://www.simhubdash.com/&#34;&gt;SimHub&lt;/a&gt; top program the Arduino via USB, connected the fans to the Right and Left fan channels and used a barrel connector that has screw terminals that was able to just slide over the GND/+12V pins.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;populated-board&#34;&gt;Populated Board&lt;/h1&gt;
+&lt;p&gt;I populated the board with the Arduino board and the pin headers. Assembly was very straight forward. I added pin headers for the GND and +12V lines for testing purposes, in the future I&amp;rsquo;ll either add a barrel connector or just wire the power supply directly to it.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251204102135.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;the-test&#34;&gt;The Test&lt;/h1&gt;
+&lt;p&gt;I used &lt;a href=&#34;https://www.simhubdash.com/&#34;&gt;SimHub&lt;/a&gt; top program the Arduino via USB, connected the fans to the Right and Left fan channels and used a barrel connector that has screw terminals that was able to just slide over the GND/+12V pins.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251204102149.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Here is the complete setup, fans on either side of the steering wheel are adjustable and can be pointed at the player. The fan setup performed flawlessly.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251204102158.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;next-steps&#34;&gt;Next Steps&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;I need to add friction fit connectors on the fan headers to ensure they don&amp;rsquo;t accidently disconnect.&lt;/li&gt;
+&lt;li&gt;3D Design/Print a case&lt;/li&gt;
+&lt;li&gt;Power connector solution&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>Underground Wire Locator</title>
       <link>/posts/underground-wire-locator/</link>

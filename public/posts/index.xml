@@ -6,7 +6,37 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 04 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 05 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cisco ASA Woes</title>
+      <link>/posts/untitled-1/</link>
+      <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/untitled-1/</guid>
+      <description>&lt;h1 id=&#34;cisco-asa-5510&#34;&gt;Cisco ASA 5510&lt;/h1&gt;
+&lt;p&gt;I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I&amp;rsquo;d first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration.  I purchased this ASA in probably 2017 or 2018 and it was way past end of life then (foreshadowing&amp;hellip;..).&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;cisco-asa-5510&#34;&gt;Cisco ASA 5510&lt;/h1&gt;
+&lt;p&gt;I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I&amp;rsquo;d first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration.  I purchased this ASA in probably 2017 or 2018 and it was way past end of life then (foreshadowing&amp;hellip;..).&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251205104321.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;configuration&#34;&gt;Configuration&lt;/h1&gt;
+&lt;p&gt;I plugged the ASA into power and connected a Cisco console cable to it, i ran the other end of the console cable through an RS232 to USB adapter and opened up PuTTY. After adjusting the serial settings I was able to easily get to the login prompt.&lt;/p&gt;
+&lt;h2 id=&#34;logging-in&#34;&gt;Logging In&lt;/h2&gt;
+&lt;p&gt;This is where I hit my first snag, I had no idea what I set the username and password to 7 or 8 years ago&amp;hellip;. So I had to do a factory reset on the ASA which isn&amp;rsquo;t incredibly difficult but not something that is super intuitive. I had to interrupt the boot sequence and get into theROM Monitor (ROMmon) mode and change the configuration register for the boot sequence telling it to ignore current config on the device. From there I was able to reboot it with no loaded config, delete the stored config and then start from scratch.&lt;/p&gt;
+&lt;p&gt;I assumed that this would be the hardest part&amp;hellip;..&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251205105607.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;interface-setup&#34;&gt;Interface Setup&lt;/h2&gt;
+&lt;p&gt;From here, I set an IP address on one of the Ethernet ports and connected a laptop to that port. I setup the laptop on the same subnet and pinged the ASA successfully. I then enabled the http server on the ASA to enable access to the web GUI.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251205105723.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;disaster-strikes&#34;&gt;Disaster Strikes&lt;/h2&gt;
+&lt;p&gt;I attempted to visit the web GUI in my browser, only to be greeted with an SSL/TLS mismatch error&amp;hellip;. uh oh.  A quick web search revealed that this version of the ASA firmware only supports TLS 1.0 and the only fix is a firmware upgrade. Well that seems easy&amp;hellip;. except Cisco doesn&amp;rsquo;t just give out firmware files, and even if I still had an account with them that had access to updates, it would appear that they no longer have the files available for this ASA because it is soo old (eol was in 2018).&lt;/p&gt;
+&lt;p&gt;I was about to give up, but remembered that I had a laptop that hasn&amp;rsquo;t been booted up in almost as long as this ASA and though maybe it might work to access the web GUI. I set that laptop up, attempted to access the web GUI in Chrome and received the same error. Then I realized that this laptop still had Internet Explorer on it. I tried in IE, it allowed me to load the page after choosing to ignore the certificate errors&amp;hellip;.. At this point I thought my problems were solved.&lt;/p&gt;
+&lt;p&gt;The GUI for the ASA (Cisco ASDM) is a JAVA program, so the webpage loaded on the ASA is really just a download page for the JAVA file. I downloaded the file, but when I went to run it, the PC let me know that I didn&amp;rsquo;t have JAVA installed&amp;hellip; ok fine, so I installed Java and tried again.&lt;/p&gt;
+&lt;p&gt;The latest version of Java doesn&amp;rsquo;t support the ASDM file. So after another Google search I found many people with the same issue. The only solution appears to be to downgrade Java&amp;hellip;. but these posts were from  8 years ago&amp;hellip; and that version of Java is long gone&amp;hellip;..&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This ASA is now basically just a giant piece of e-waste. I did a little bit of searching to see if maybe it was possible to install some sort of alternate firmware on it like OpenWRT, but it would appear that most projects like that don&amp;rsquo;t support Cisco hardware because it is too specialized. So, I guess now I&amp;rsquo;m gonna need to find another firewall to play with&amp;hellip;. looked at some Palo Alto PA-820&amp;rsquo;s on eBay, they don&amp;rsquo;t go eol until 2029, so that&amp;rsquo;s probably a good choice&amp;hellip;. just gonna have to wait until after the holidays.&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>PCB Project part 2</title>
       <link>/posts/pcb-project-part-2/</link>

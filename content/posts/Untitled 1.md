@@ -10,18 +10,18 @@ tags:
 ---
 # Cisco ASA 5510
 
-I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I'd first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration.  I purchased this ASA in probably 2017 or 2018 and it was way past end of life then (foreshadowing.....).
+I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I'd first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration.  I purchased this ASA in probably 2017 or 2018 and it was past end of life then (foreshadowing.....).
 
 
 !![Image Description](/images/Pasted%20image%2020251205104321.png)
 
 # Configuration
 
-I plugged the ASA into power and connected a Cisco console cable to it, i ran the other end of the console cable through an RS232 to USB adapter and opened up PuTTY. After adjusting the serial settings I was able to easily get to the login prompt.
+I plugged the ASA into power and connected a Cisco console cable to it, I ran the other end of the console cable through an RS232 to USB adapter and opened up PuTTY. After adjusting the serial settings I was able to easily get to the login prompt.
 
 ## Logging In
 
-This is where I hit my first snag, I had no idea what I set the username and password to 7 or 8 years ago.... So I had to do a factory reset on the ASA which isn't incredibly difficult but not something that is super intuitive. I had to interrupt the boot sequence and get into theROM Monitor (ROMmon) mode and change the configuration register for the boot sequence telling it to ignore current config on the device. From there I was able to reboot it with no loaded config, delete the stored config and then start from scratch.
+This is where I hit my first snag, I had no idea what I set the username and password to 7 or 8 years ago.... So I had to do a factory reset on the ASA which isn't incredibly difficult but not something that is super intuitive. I had to interrupt the boot sequence and get into the ROM Monitor (ROMmon) mode and change the configuration register for the boot sequence telling it to ignore current config on the device. From there I was able to reboot it with no loaded config, delete the stored config and then start from scratch.
 
 I assumed that this would be the hardest part.....
 

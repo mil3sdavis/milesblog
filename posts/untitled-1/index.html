@@ -6,7 +6,7 @@
   
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Cisco ASA 5510 I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I&rsquo;d first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration. I purchased this ASA in probably 2017 or 2018 and it was way past end of life then (foreshadowing&hellip;..).
+<meta name="description" content="Cisco ASA 5510 I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I&rsquo;d first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration. I purchased this ASA in probably 2017 or 2018 and it was past end of life then (foreshadowing&hellip;..).
 " />
 <meta name="keywords" content="" />
 
@@ -50,7 +50,7 @@
 <meta property="og:locale" content="en" />
 <meta property="og:type" content="article" />
 <meta property="og:title" content="Cisco ASA Woes">
-<meta property="og:description" content="Cisco ASA 5510 I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I&rsquo;d first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration. I purchased this ASA in probably 2017 or 2018 and it was way past end of life then (foreshadowing&hellip;..).
+<meta property="og:description" content="Cisco ASA 5510 I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I&rsquo;d first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration. I purchased this ASA in probably 2017 or 2018 and it was past end of life then (foreshadowing&hellip;..).
 " />
 <meta property="og:url" content="/posts/untitled-1/" />
 <meta property="og:site_name" content="" />
@@ -166,12 +166,12 @@
 
   <div class="post-content"><div>
         <h1 id="cisco-asa-5510">Cisco ASA 5510<a href="#cisco-asa-5510" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
-<p>I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I&rsquo;d first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration.  I purchased this ASA in probably 2017 or 2018 and it was way past end of life then (foreshadowing&hellip;..).</p>
+<p>I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I&rsquo;d first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration.  I purchased this ASA in probably 2017 or 2018 and it was past end of life then (foreshadowing&hellip;..).</p>
 <p>!<img src="/images/Pasted%20image%2020251205104321.png" alt="Image Description"></p>
 <h1 id="configuration">Configuration<a href="#configuration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
-<p>I plugged the ASA into power and connected a Cisco console cable to it, i ran the other end of the console cable through an RS232 to USB adapter and opened up PuTTY. After adjusting the serial settings I was able to easily get to the login prompt.</p>
+<p>I plugged the ASA into power and connected a Cisco console cable to it, I ran the other end of the console cable through an RS232 to USB adapter and opened up PuTTY. After adjusting the serial settings I was able to easily get to the login prompt.</p>
 <h2 id="logging-in">Logging In<a href="#logging-in" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
-<p>This is where I hit my first snag, I had no idea what I set the username and password to 7 or 8 years ago&hellip;. So I had to do a factory reset on the ASA which isn&rsquo;t incredibly difficult but not something that is super intuitive. I had to interrupt the boot sequence and get into theROM Monitor (ROMmon) mode and change the configuration register for the boot sequence telling it to ignore current config on the device. From there I was able to reboot it with no loaded config, delete the stored config and then start from scratch.</p>
+<p>This is where I hit my first snag, I had no idea what I set the username and password to 7 or 8 years ago&hellip;. So I had to do a factory reset on the ASA which isn&rsquo;t incredibly difficult but not something that is super intuitive. I had to interrupt the boot sequence and get into the ROM Monitor (ROMmon) mode and change the configuration register for the boot sequence telling it to ignore current config on the device. From there I was able to reboot it with no loaded config, delete the stored config and then start from scratch.</p>
 <p>I assumed that this would be the hardest part&hellip;..</p>
 <p>!<img src="/images/Pasted%20image%2020251205105607.png" alt="Image Description"></p>
 <h2 id="interface-setup">Interface Setup<a href="#interface-setup" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>

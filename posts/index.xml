@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 05 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cisco ASA Woes</title>
-      <link>/posts/untitled-1/</link>
+      <link>/posts/cisco-asa-woes/</link>
       <pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate>
       
-      <guid>/posts/untitled-1/</guid>
+      <guid>/posts/cisco-asa-woes/</guid>
       <description>&lt;h1 id=&#34;cisco-asa-5510&#34;&gt;Cisco ASA 5510&lt;/h1&gt;
 &lt;p&gt;I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I&amp;rsquo;d first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration.  I purchased this ASA in probably 2017 or 2018 and it was past end of life then (foreshadowing&amp;hellip;..).&lt;/p&gt;</description>
       <content>&lt;h1 id=&#34;cisco-asa-5510&#34;&gt;Cisco ASA 5510&lt;/h1&gt;

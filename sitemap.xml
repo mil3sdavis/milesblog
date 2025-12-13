@@ -3,10 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2025-12-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/aquarium/</loc>
+    <lastmod>2025-12-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/blog/</loc>
-    <lastmod>2025-12-05T00:00:00+00:00</lastmod>
+    <lastmod>2025-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/long-needed-aquarium-water-chemistry-adjustments/</loc>
+    <lastmod>2025-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2025-12-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2025-12-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/cisco/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
@@ -18,12 +30,6 @@
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/homelab/</loc>
-    <lastmod>2025-12-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2025-12-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/pcb-project-part-2/</loc>

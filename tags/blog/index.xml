@@ -6,7 +6,49 @@
     <description>Recent content in Blog on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 05 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Long Needed Aquarium Water Chemistry Adjustments</title>
+      <link>/posts/long-needed-aquarium-water-chemistry-adjustments/</link>
+      <pubDate>Sat, 13 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/long-needed-aquarium-water-chemistry-adjustments/</guid>
+      <description>&lt;h1 id=&#34;background&#34;&gt;Background&lt;/h1&gt;
+&lt;p&gt;I have a 135gal saltwater aquarium in my office full of coral and several fish. The system is fairly automated, it is controlled by a commercially available aquarium controller running custom rules that I have programmed into it to control heaters, supplement dosing, pumps, UV sterilizer, Ozone reactor, etc. I&amp;rsquo;ll probably make a post at some point in the future explaining the setup.&lt;/p&gt;
+&lt;p&gt;The supplement dosing is the trickiest part of the whole system, it requires constant water parameter testing to ensure that the correct amount of supplements  are being dosed, and I also have to ensure that I don&amp;rsquo;t run out of the supplements. As I get busy with life, kids, work, etc, inevitably I forget to check the containers of supplements and the system doses nothing to the tank for days or weeks until I remember to check them.&lt;/p&gt;</description>
+      <content>&lt;h1 id=&#34;background&#34;&gt;Background&lt;/h1&gt;
+&lt;p&gt;I have a 135gal saltwater aquarium in my office full of coral and several fish. The system is fairly automated, it is controlled by a commercially available aquarium controller running custom rules that I have programmed into it to control heaters, supplement dosing, pumps, UV sterilizer, Ozone reactor, etc. I&amp;rsquo;ll probably make a post at some point in the future explaining the setup.&lt;/p&gt;
+&lt;p&gt;The supplement dosing is the trickiest part of the whole system, it requires constant water parameter testing to ensure that the correct amount of supplements  are being dosed, and I also have to ensure that I don&amp;rsquo;t run out of the supplements. As I get busy with life, kids, work, etc, inevitably I forget to check the containers of supplements and the system doses nothing to the tank for days or weeks until I remember to check them.&lt;/p&gt;
+&lt;p&gt;This post is about the multiday process of fixing this problem.&lt;/p&gt;
+&lt;h2 id=&#34;steps&#34;&gt;Steps&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Check the Alkalinity, Calcium, and Magnesium levels&lt;/li&gt;
+&lt;li&gt;Determine to bolus amount required to adjust the levels to the correct values&lt;/li&gt;
+&lt;li&gt;Dose the bolus amount (possibly over a few days depending on the amount)&lt;/li&gt;
+&lt;li&gt;Check the levels again&lt;/li&gt;
+&lt;li&gt;Wait 24 hours and check the levels again&lt;/li&gt;
+&lt;li&gt;Calculate the amount needed for a daily dose based on the test results&lt;/li&gt;
+&lt;li&gt;Setup dosing for the new amount&lt;/li&gt;
+&lt;li&gt;Check the values every day for several days to make sure the values are staying stable&lt;/li&gt;
+&lt;li&gt;Repeat steps 6-8 until a stable daily value is achieved&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251213102645.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251213102700.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;calculation&#34;&gt;Calculation&lt;/h1&gt;
+&lt;p&gt;&lt;code&gt;Amount Needed = ( (Target value - Current value) * Total Water Volume ) / (Concentration of Additive)&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id=&#34;results&#34;&gt;Results&lt;/h1&gt;
+&lt;p&gt;I have an automated water tester set up on the system, it checks Alkalinity once every 6 hours and Calcium and Magnesium once ever 12 hours (Ca and Mg levels are dependent on the Alk level, so changes in Alk are more important to monitor as it would be an indicator that Ca/Mg levels will be changing. Checking Ca/Mg less often saves on testing reagent).&lt;/p&gt;
+&lt;p&gt;As you can see from the graph of the Alkalinity level, the value was sitting at about 5.00 dKH (Degrees of German carbonate hardness). After the bolus dose, I was able to bring the value up to about 10.5 dKH. The ideal range for Alkalinity is between 8 and 12 dKH,  I decided that I&amp;rsquo;d settle for around 9.5 dKH so as to conserve the Alk supplement. There is a little bit of wiggle room in the calculation and dosing implementation due to the actual water volume being unknown (this is because 135gal is an estimate based on the size of the aquarium and the size of the sump in the stand that holds most of the filtration, the water volume in the sump is hard to calculate because it has multiple chambers of varying water levels). The wiggle room results in some slop in the calculation as can be seen below.&lt;/p&gt;
+&lt;h3 id=&#34;alk-supplement-calculation&#34;&gt;Alk Supplement Calculation&lt;/h3&gt;
+&lt;p&gt;&lt;em&gt;Note: 135gal = 511L&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Bolus Amount = ((10.0dKH - 5.0dKH) * 511L) / 33.3g/L (*Dry Sodium Bicarbinate*) = 76.7 grams&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Daily Dose Amount = ((9.5dKH - 8.4dkH)) / 0.005g/mL (*Liquid Sodium Bicarbinate*)  = 212m/L per day&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251213105633.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;p&gt;The same approach was taken with the Ca level, but I am still in the process of monitoring the Ca level over the course of a few days to ensure the dosage is correct. I do not automatically dose Mg as the values normally remain fairly stable, if adjustments are needed, I manually dose an amount using the same calculation.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020251213105701.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>Cisco ASA Woes</title>
       <link>/posts/cisco-asa-woes/</link>

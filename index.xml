@@ -6,7 +6,27 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 13 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 24 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Dunning-Kruger Effect</title>
+      <link>/posts/the-dunning-kruger-effect/</link>
+      <pubDate>Sat, 24 Jan 2026 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/the-dunning-kruger-effect/</guid>
+      <description>&lt;p&gt;The Dunning-Kruger Effect is often used to explain overconfidence, but I don’t think we talk enough about its opposite effect.&lt;/p&gt;
+&lt;p&gt;As someone who’s spent years as a “jack of many trades,” I’ve found myself well past the “Peak of Mt. Stupid” in several areas, now sitting somewhere between the “Valley of Despair” and the “Slope of Enlightenment.” With experience comes perspective, and with perspective comes the uncomfortable awareness of just how much there is to learn.&lt;/p&gt;</description>
+      <content>&lt;p&gt;The Dunning-Kruger Effect is often used to explain overconfidence, but I don’t think we talk enough about its opposite effect.&lt;/p&gt;
+&lt;p&gt;As someone who’s spent years as a “jack of many trades,” I’ve found myself well past the “Peak of Mt. Stupid” in several areas, now sitting somewhere between the “Valley of Despair” and the “Slope of Enlightenment.” With experience comes perspective, and with perspective comes the uncomfortable awareness of just how much there is to learn.&lt;/p&gt;
+&lt;p&gt;I believe deeply in the Pareto Principle, the idea that 20% of effort can often yield 80% of results. Breadth, when applied intentionally, can be incredibly powerful, especially when paired with the willingness to go deeper where it truly matters.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;“A jack of all trades is a master of none, but oftentimes better than a master of one.”&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Here’s the irony. Understanding the Dunning-Kruger Effect can actually fuel imposter syndrome. When you know what mastery really looks like, confidence no longer comes cheaply.&lt;/p&gt;
+&lt;p&gt;So I’ll pose a question I suspect many professionals wrestle with silently.&lt;br&gt;
+How do you decide when a skill is “good enough” to claim? Is it measured by confidence, competence, or continuous growth?&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>Long Needed Aquarium Water Chemistry Adjustments</title>
       <link>/posts/long-needed-aquarium-water-chemistry-adjustments/</link>
@@ -216,16 +236,6 @@
 &lt;p&gt;This is a png.
 !&lt;img src=&#34;/images/Pasted%20image%2020251129112637.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
 </content>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/posts/untitled/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/posts/untitled/</guid>
-      <description></description>
-      <content></content>
     </item>
     
   </channel>

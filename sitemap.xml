@@ -3,21 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2025-12-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-01-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/blog/</loc>
+    <lastmod>2026-01-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2026-01-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2026-01-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/the-dunning-kruger-effect/</loc>
+    <lastmod>2026-01-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/aquarium/</loc>
     <lastmod>2025-12-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/blog/</loc>
-    <lastmod>2025-12-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/posts/long-needed-aquarium-water-chemistry-adjustments/</loc>
-    <lastmod>2025-12-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2025-12-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2025-12-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/cisco/</loc>
@@ -58,8 +61,6 @@
   </url><url>
     <loc>/posts/first-blog-post/</loc>
     <lastmod>2025-11-27T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/posts/untitled/</loc>
   </url><url>
     <loc>/categories/</loc>
   </url>

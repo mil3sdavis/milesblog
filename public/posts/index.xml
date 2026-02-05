@@ -6,7 +6,35 @@
     <description>Recent content in Posts on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 24 Jan 2026 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Feb 2026 00:00:00 +0000</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Electronics Repair - Automatic Fish Feeder</title>
+      <link>/posts/electronics-repair---automatic-fish-feeder/</link>
+      <pubDate>Thu, 05 Feb 2026 00:00:00 +0000</pubDate>
+      
+      <guid>/posts/electronics-repair---automatic-fish-feeder/</guid>
+      <description>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;Yesterday morning, I had discovered that my automatic feeder on my aquarium had dumped its entire hopper in the aquarium (not a big deal, it was almost empty), and was unable to retract the hopper to the original position. I initiated a manual feed via a button on the back, and the hopper would just spin and never return to initial start position.&lt;/p&gt;
+&lt;p&gt;I initially thought that the gear mechanism had just gotten misaligned or stuck, I disassembled the feeder and reset the gears so that everything was in the correct initial state. Upon testing I ended up with the same result. This now meant that I had to figure out how the feeder knows when to retract the hopper back to the initial state at the end of the feed cycle.&lt;/p&gt;</description>
+      <content>&lt;h2 id=&#34;the-problem&#34;&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;Yesterday morning, I had discovered that my automatic feeder on my aquarium had dumped its entire hopper in the aquarium (not a big deal, it was almost empty), and was unable to retract the hopper to the original position. I initiated a manual feed via a button on the back, and the hopper would just spin and never return to initial start position.&lt;/p&gt;
+&lt;p&gt;I initially thought that the gear mechanism had just gotten misaligned or stuck, I disassembled the feeder and reset the gears so that everything was in the correct initial state. Upon testing I ended up with the same result. This now meant that I had to figure out how the feeder knows when to retract the hopper back to the initial state at the end of the feed cycle.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020260205104736.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;how-it-works&#34;&gt;How it works&lt;/h2&gt;
+&lt;p&gt;The motor, while spinning in one direction performs a feed cycle by pushing the hopper out of the housing, and rotating it a preprogrammed number of revolutions causing it to release food from a slot in the bottom of it. When the motor spins in the opposite direction it retracts the hopper back into the housing.&lt;/p&gt;
+&lt;p&gt;By watching the how the feeder behaved, I could tell that whatever signal it receives to tell the motor to stop and reverse direction was not being received. The gearing mechanism that extends/retracts and rotates the hopper has a tab on it that passes through an optical sensor (Data Sheet: &lt;a href=&#34;https://www.vishay.com/docs/83763/tcst1030.pdf%29&#34;&gt;https://www.vishay.com/docs/83763/tcst1030.pdf)&lt;/a&gt;. The sensor uses an infrared LED and a phototransistor, the tab on the gearing mechanism passes through the gap between the LED and the phototransistor blocking the light. This is how the device knows how many times the hopper has rotated (each rotation results in the phototransistor being blocked once ), when the preprogrammed number of revolutions has occurred (in this case, two), the device reverses the polarity of the power to the motor causing it to turn in reverse and retract the hopper.&lt;/p&gt;
+&lt;p&gt;!&lt;img src=&#34;/images/Pasted%20image%2020260205104930.png&#34; alt=&#34;Image Description&#34;&gt;!&lt;img src=&#34;/images/Pasted%20image%2020260205104852.png&#34; alt=&#34;Image Description&#34;&gt;!&lt;img src=&#34;/images/Pasted%20image%2020260205104947.png&#34; alt=&#34;Image Description&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;the-failure&#34;&gt;The Failure&lt;/h2&gt;
+&lt;p&gt;The Optical Light Sensor had failed, I could tell just by looking at it, the legs were corroded (years of use in a moist salty environment will do that).&lt;/p&gt;
+&lt;h2 id=&#34;the-fix&#34;&gt;The Fix&lt;/h2&gt;
+&lt;p&gt;Through the magic of owning several of these automatic feeders (at one time I had several aquariums set up in my basement), and having another on that had also failed, it was time to see if i had enough working parts to make a one that works.&lt;/p&gt;
+&lt;p&gt;The other broken feeder has also succumbed to years of hard work in a humid salty environment. The contacts in the battery compartment had corroded. The fix here was fairly simple, I hooked the contacts to the DC barrel plug up to my bench power supply to verify that the feeder still worked and it didn&amp;rsquo;t have issues beyond the battery compartment. I then de-soldered the battery leads from both control boards, and attached the battery holder from the feeder with the bad sensor to the feeder that had the bad battery holder. Reassembled everything, and fed my fish their breakfast several hours late.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m always an advocate for trying to fix something before replacing it. If I wouldn&amp;rsquo;t have had a second broken feeder to harvest parts from, I would have attempted to source a new Optical Sensor.&lt;/p&gt;
+&lt;h2 id=&#34;what-did-we-learn&#34;&gt;What did we learn?&lt;/h2&gt;
+&lt;p&gt;In this case, I learned how this device operates, it&amp;rsquo;s not just a black box that dispenses food anymore. Opening something up and figuring out how it works is a good mental exercise in problem solving that can be applied to other fields. I didn&amp;rsquo;t lean any new skills here, but I was able to exercise my brain a little and save some money.&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>The Dunning-Kruger Effect</title>
       <link>/posts/the-dunning-kruger-effect/</link>

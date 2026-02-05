@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Electronics Repair - Automatic Fish Feeder :: </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Problem Yesterday morning, I had discovered that my automatic feeder on my aquarium had dumped its entire hopper in the aquarium (not a big deal, it was almost empty), and was unable to retract the hopper to the original position. I initiated a manual feed via a button on the back, and the hopper would just spin and never return to initial start position.
+I initially thought that the gear mechanism had just gotten misaligned or stuck, I disassembled the feeder and reset the gears so that everything was in the correct initial state. Upon testing I ended up with the same result. This now meant that I had to figure out how the feeder knows when to retract the hopper back to the initial state at the end of the feed cycle.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="/posts/electronics-repair---automatic-fish-feeder/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/img/theme-colors/blue.png">
+  <link rel="apple-touch-icon" href="/img/theme-colors/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Electronics Repair - Automatic Fish Feeder">
+<meta property="og:description" content="The Problem Yesterday morning, I had discovered that my automatic feeder on my aquarium had dumped its entire hopper in the aquarium (not a big deal, it was almost empty), and was unable to retract the hopper to the original position. I initiated a manual feed via a button on the back, and the hopper would just spin and never return to initial start position.
+I initially thought that the gear mechanism had just gotten misaligned or stuck, I disassembled the feeder and reset the gears so that everything was in the correct initial state. Upon testing I ended up with the same result. This now meant that I had to figure out how the feeder knows when to retract the hopper back to the initial state at the end of the feed cycle.
+" />
+<meta property="og:url" content="/posts/electronics-repair---automatic-fish-feeder/" />
+<meta property="og:site_name" content="" />
+
+  
+    <meta property="og:image" content="/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-02-05 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</head>
+<body class="blue">
+
+
+
+
+<div class="container full headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/electronics-repair---automatic-fish-feeder/">Electronics Repair - Automatic Fish Feeder</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-02-05</time>
+    
+<span class="post-reading-time">3 min read (617 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/blog/">blog</a>&nbsp;
+      
+      #<a href="/tags/aquarium/">aquarium</a>&nbsp;
+      
+      #<a href="/tags/petcare/">petCare</a>&nbsp;
+      
+      #<a href="/tags/electronics/">electronics</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+
+  
+
+  <div class="post-content"><div>
+        <h2 id="the-problem">The Problem<a href="#the-problem" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Yesterday morning, I had discovered that my automatic feeder on my aquarium had dumped its entire hopper in the aquarium (not a big deal, it was almost empty), and was unable to retract the hopper to the original position. I initiated a manual feed via a button on the back, and the hopper would just spin and never return to initial start position.</p>
+<p>I initially thought that the gear mechanism had just gotten misaligned or stuck, I disassembled the feeder and reset the gears so that everything was in the correct initial state. Upon testing I ended up with the same result. This now meant that I had to figure out how the feeder knows when to retract the hopper back to the initial state at the end of the feed cycle.</p>
+<p>!<img src="/images/Pasted%20image%2020260205104736.png" alt="Image Description"></p>
+<h2 id="how-it-works">How it works<a href="#how-it-works" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The motor, while spinning in one direction performs a feed cycle by pushing the hopper out of the housing, and rotating it a preprogrammed number of revolutions causing it to release food from a slot in the bottom of it. When the motor spins in the opposite direction it retracts the hopper back into the housing.</p>
+<p>By watching the how the feeder behaved, I could tell that whatever signal it receives to tell the motor to stop and reverse direction was not being received. The gearing mechanism that extends/retracts and rotates the hopper has a tab on it that passes through an optical sensor (Data Sheet: <a href="https://www.vishay.com/docs/83763/tcst1030.pdf%29">https://www.vishay.com/docs/83763/tcst1030.pdf)</a>. The sensor uses an infrared LED and a phototransistor, the tab on the gearing mechanism passes through the gap between the LED and the phototransistor blocking the light. This is how the device knows how many times the hopper has rotated (each rotation results in the phototransistor being blocked once ), when the preprogrammed number of revolutions has occurred (in this case, two), the device reverses the polarity of the power to the motor causing it to turn in reverse and retract the hopper.</p>
+<p>!<img src="/images/Pasted%20image%2020260205104930.png" alt="Image Description">!<img src="/images/Pasted%20image%2020260205104852.png" alt="Image Description">!<img src="/images/Pasted%20image%2020260205104947.png" alt="Image Description"></p>
+<h2 id="the-failure">The Failure<a href="#the-failure" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The Optical Light Sensor had failed, I could tell just by looking at it, the legs were corroded (years of use in a moist salty environment will do that).</p>
+<h2 id="the-fix">The Fix<a href="#the-fix" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Through the magic of owning several of these automatic feeders (at one time I had several aquariums set up in my basement), and having another on that had also failed, it was time to see if i had enough working parts to make a one that works.</p>
+<p>The other broken feeder has also succumbed to years of hard work in a humid salty environment. The contacts in the battery compartment had corroded. The fix here was fairly simple, I hooked the contacts to the DC barrel plug up to my bench power supply to verify that the feeder still worked and it didn&rsquo;t have issues beyond the battery compartment. I then de-soldered the battery leads from both control boards, and attached the battery holder from the feeder with the bad sensor to the feeder that had the bad battery holder. Reassembled everything, and fed my fish their breakfast several hours late.</p>
+<p>I&rsquo;m always an advocate for trying to fix something before replacing it. If I wouldn&rsquo;t have had a second broken feeder to harvest parts from, I would have attempted to source a new Optical Sensor.</p>
+<h2 id="what-did-we-learn">What did we learn?<a href="#what-did-we-learn" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>In this case, I learned how this device operates, it&rsquo;s not just a black box that dispenses food anymore. Opening something up and figuring out how it works is a good mental exercise in problem solving that can be applied to other fields. I didn&rsquo;t lean any new skills here, but I was able to exercise my brain a little and save some money.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/the-dunning-kruger-effect/">
+                <span class="button__text">The Dunning-Kruger Effect</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

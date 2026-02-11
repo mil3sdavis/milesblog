@@ -1,0 +1,64 @@
+---
+title: Genealogy as Intelligence Analysis
+date: 2026-02-11
+draft: false
+tags:
+  - blog
+  - intel
+  - genealogy
+---
+
+Early in my career I worked as an intelligence analyst, a role that taught me how to work with incomplete information, evaluate sources, and build narratives from scattered data points. Over the years I’ve found myself applying those same skills in unexpected places. One of the most interesting examples has been genealogy — the study of family history.
+
+My maternal grandmother developed a deep interest in our ancestry late in her life and passed that curiosity on to me. My original goal was simple: learn more about where my family came from and who my ancestors were. But as my research evolved, I realized I was approaching genealogy the same way I approached intelligence work — identifying patterns, validating evidence, and following threads wherever they led.
+
+Genealogy, much like intelligence analysis, requires finding diverse sources, interpreting incomplete records, and sometimes thinking creatively to fill in gaps that history has left behind.
+
+### Maternal Grandmother’s Side
+My grandmother always told me that we were direct descendants of Daniel Boone — that he was my sixth great-grandfather. Like many family stories, it was passed down as fact, and I decided to test that claim using the same analytical mindset I had used professionally.
+
+I began by tracing the Boone line backward through available records. Much of the early work was straightforward thanks to existing data on Ancestry.com, which allowed me to reach my fifth great-grandmother fairly quickly. That’s where things became complicated. Her maiden name was Coger, not Boone, and the documented lineage didn’t match the family story.
+
+This is where genealogy starts to resemble intelligence work. Conflicting information doesn’t necessarily mean the story is wrong — it means the context may be incomplete.
+
+DNA testing placed me in a shared family group with individuals who had documented connections to Daniel Boone. Further research suggested that my fifth great-grandmother’s family interacted with the Boone family in the early 1800s. Records indicate she became pregnant at a very young age, likely between 13 and 15 years old, and the father may have been one of Boone’s adult sons. Exact identities are impossible to confirm due to limited documentation and the realities of historical record-keeping.
+
+It’s a reminder that genealogy sometimes uncovers uncomfortable or unresolved histories. Not every mystery has a definitive answer, and analysis often leads to probabilities rather than certainty.
+
+### Maternal Grandfather’s Side
+My maternal grandfather’s lineage is far more thoroughly documented, tracing back to German immigrants who arrived in America in the late 1700s. My curiosity here wasn’t about lineage so much as location — specifically, a family cemetery that seemed to have vanished from modern maps.
+
+The last reference I could find dated back to a 1909 newspaper article describing a family reunion where descendants gathered to clean and restore the cemetery. The article mentioned nearby crossroads but no precise coordinates.
+
+Google Maps showed nothing at the suspected location. While visiting my parents one weekend, I decided to investigate in person. After driving the area and speaking with a few residents without success, I turned to county GIS property records — another example of applying investigative techniques learned elsewhere.
+
+I identified a house set back from the road, tracked down the property owner’s contact information, and made a cold call that felt oddly similar to conducting field research.
+
+“Hello, my name is Miles… I’m doing genealogy research on my family and was wondering if you might have a cemetery on your property?”
+
+As it turns out, they did.
+
+The owners explained that the cemetery had been vandalized in the 1950s and had since become heavily overgrown. They confirmed the family connection, and we ended up having a long and surprisingly meaningful conversation. It’s one of those moments where history stops being abstract — it becomes tied to real places and real people.
+
+### Paternal Grandfather’s Side
+Researching my paternal line was perhaps the most challenging — and the most personal. My grandfather suffered from dementia later in life, and my father knew very little about his own family history. The McGee side of the family felt like a blank space in our story.
+
+My great-grandfather John was well known locally, and the circumstances surrounding his death created a large paper trail. That helped me identify his father — another John McGee — who was buried only a few blocks from the house where I grew up.
+
+Hoping for clarity, I visited the cemetery expecting to find detailed information on the headstone. Instead, it simply read: “John P McGee, 1871–1938.”
+
+Even the cemetery caretaker’s records revealed nothing more.
+
+For a long time, the trail went cold. I searched census data, state death records, and newspaper archives without success. Then, after my grandfather passed away, we discovered a box of letters sent to him and his mother from a relative in Warsaw, New York. It wasn’t the answer I was looking for — but it was a new lead.
+
+Eventually, I located the obituary of John P’s wife, which listed the funeral home that handled her arrangements. Acting on a hunch that families often use the same funeral home across generations, I reached out. Weeks later, the elderly owner retrieved records from offsite storage and provided the missing details — including an out-of-state death location that explained why I had been unable to locate a death certificate locally.
+
+With that information, I finally found his obituary, confirming family connections and linking the Warsaw, NY thread to earlier generations. That breakthrough carried me one generation further — to ancestors born in Ireland with extremely common names, where the trail once again grows faint.
+For now, that’s where the search pauses.
+
+### Analysis Beyond the Profession
+What genealogy has reinforced for me is that analytical thinking isn’t limited to intelligence work or cybersecurity roles. The core skills — evaluating sources, identifying patterns, questioning assumptions, and following evidence — translate into many parts of life.
+
+Family history research may seem far removed from intelligence analysis, but the mindset is remarkably similar. Both require patience, skepticism, and an acceptance that some questions may never be fully resolved.
+
+And sometimes, the most meaningful discoveries aren’t just about where you come from — but about how you learn to see the world.

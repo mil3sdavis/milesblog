@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Building Single Sign-On for My Homelab with Authentik and Grafana :: </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Building Single Sign-On for My Homelab with Authentik and Grafana Introduction Like many people running a homelab, I found myself with a growing collection of self-hosted services—Grafana for monitoring, Uptime Kuma for alerts, Portainer for container management, and more.
+Each service worked well on its own, but there was one problem:
+every service had its own login.
+It wasn’t just inconvenient—it also didn’t scale. Managing users, credentials, and access across multiple applications quickly becomes messy.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="/posts/building-single-sign-on-for-my-homelab-with-authentik-and-grafana/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/img/theme-colors/blue.png">
+  <link rel="apple-touch-icon" href="/img/theme-colors/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Building Single Sign-On for My Homelab with Authentik and Grafana">
+<meta property="og:description" content="Building Single Sign-On for My Homelab with Authentik and Grafana Introduction Like many people running a homelab, I found myself with a growing collection of self-hosted services—Grafana for monitoring, Uptime Kuma for alerts, Portainer for container management, and more.
+Each service worked well on its own, but there was one problem:
+every service had its own login.
+It wasn’t just inconvenient—it also didn’t scale. Managing users, credentials, and access across multiple applications quickly becomes messy.
+" />
+<meta property="og:url" content="/posts/building-single-sign-on-for-my-homelab-with-authentik-and-grafana/" />
+<meta property="og:site_name" content="" />
+
+  
+    <meta property="og:image" content="/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-03-25 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</head>
+<body class="blue">
+
+
+
+
+<div class="container full headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/building-single-sign-on-for-my-homelab-with-authentik-and-grafana/">Building Single Sign-On for My Homelab with Authentik and Grafana</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-03-25</time>
+    
+<span class="post-reading-time">4 min read (677 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/blog/">blog</a>&nbsp;
+      
+      #<a href="/tags/homelab/">homelab</a>&nbsp;
+      
+      #<a href="/tags/network/">network</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="building-single-sign-on-for-my-homelab-with-authentik-and-grafana">Building Single Sign-On for My Homelab with Authentik and Grafana<a href="#building-single-sign-on-for-my-homelab-with-authentik-and-grafana" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<h2 id="introduction">Introduction<a href="#introduction" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Like many people running a homelab, I found myself with a growing collection of self-hosted services—Grafana for monitoring, Uptime Kuma for alerts, Portainer for container management, and more.</p>
+<p>Each service worked well on its own, but there was one problem:<br>
+<strong>every service had its own login.</strong></p>
+<p>It wasn’t just inconvenient—it also didn’t scale. Managing users, credentials, and access across multiple applications quickly becomes messy.</p>
+<p>So I set out to solve a problem that’s very common in real-world environments:<br>
+<strong>centralized authentication with Single Sign-On (SSO).</strong></p>
+<hr>
+<h2 id="the-goal">The Goal<a href="#the-goal" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>My objective was simple:</p>
+<ul>
+<li>
+<p>One login for all services</p>
+</li>
+<li>
+<p>Centralized user management</p>
+</li>
+<li>
+<p>A system that mirrors enterprise identity platforms</p>
+</li>
+</ul>
+<p>In short, I wanted to turn my homelab into something that behaves more like a production environment.</p>
+<hr>
+<h2 id="the-stack">The Stack<a href="#the-stack" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>To accomplish this, I used:</p>
+<ul>
+<li>
+<p><strong>Authentik</strong> – Identity provider (IdP) supporting OAuth2 / OpenID Connect</p>
+</li>
+<li>
+<p><strong>Grafana</strong> – First application to integrate with SSO</p>
+</li>
+<li>
+<p><strong>Docker / Docker Compose</strong> – Service deployment and orchestration</p>
+</li>
+<li>
+<p><strong>Uptime Kuma</strong> – Monitoring and alerting</p>
+</li>
+</ul>
+<p>Grafana was the ideal starting point because it natively supports OpenID Connect (OIDC), making it a straightforward first integration.</p>
+<hr>
+<h2 id="the-reality-it-wasnt-smooth">The Reality: It Wasn’t Smooth<a href="#the-reality-it-wasnt-smooth" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Getting everything running wasn’t the hard part.<br>
+Getting it to initialize <em>correctly</em> was.</p>
+<p>I ran into several issues along the way:</p>
+<ul>
+<li>
+<p>Containers restarting due to missing environment variables</p>
+</li>
+<li>
+<p>Database migration failures</p>
+</li>
+<li>
+<p>Permission errors on mounted volumes</p>
+</li>
+<li>
+<p>Authentik starting in a partially initialized state</p>
+</li>
+<li>
+<p>A login page existing… but no admin user to log in with</p>
+</li>
+<li>
+<p>Redirect URI mismatches that silently broke authentication</p>
+</li>
+</ul>
+<p>At one point, I had a fully running Authentik instance—but no way to access the admin interface because the setup flow had failed earlier.</p>
+<p>That was a turning point:<br>
+I realized this wasn’t just about configuration—it was about understanding how these systems behave under the hood.</p>
+<hr>
+<h2 id="the-breakthrough">The Breakthrough<a href="#the-breakthrough" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The biggest improvement came from switching to the <strong>official Authentik Docker Compose configuration</strong>.</p>
+<p>That resolved:</p>
+<ul>
+<li>
+<p>Startup race conditions</p>
+</li>
+<li>
+<p>Migration inconsistencies</p>
+</li>
+<li>
+<p>Missing default flows</p>
+</li>
+</ul>
+<p>Once I let Authentik fully initialize without interruption, everything clicked into place. I was finally able to create an admin account and access the admin interface.</p>
+<hr>
+<h2 id="implementing-sso-with-grafana">Implementing SSO with Grafana<a href="#implementing-sso-with-grafana" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>With Authentik working, I moved on to integrating Grafana.</p>
+<p>The process looked like this:</p>
+<ol>
+<li>
+<p>Create an OAuth2 / OpenID Connect provider in Authentik</p>
+</li>
+<li>
+<p>Register Grafana as an application</p>
+</li>
+<li>
+<p>Configure redirect URIs</p>
+</li>
+<li>
+<p>Add OIDC settings to the Grafana container</p>
+</li>
+</ol>
+<p>One of the most important lessons here was how strict OIDC is about redirect URIs.</p>
+<p>Even small differences—like:</p>
+<ul>
+<li>
+<p><code>localhost</code> vs an IP address</p>
+</li>
+<li>
+<p>missing paths</p>
+</li>
+<li>
+<p>trailing slashes</p>
+</li>
+</ul>
+<p>…will break authentication.</p>
+<p>Fixing this required aligning Grafana’s <code>root_url</code> with the exact redirect URI configured in Authentik.</p>
+<hr>
+<h2 id="the-result">The Result<a href="#the-result" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>After everything was configured, the flow worked exactly as intended:</p>
+<ol>
+<li>
+<p>Navigate to Grafana</p>
+</li>
+<li>
+<p>Click “Sign in with Authentik”</p>
+</li>
+<li>
+<p>Get redirected to the Authentik login page</p>
+</li>
+<li>
+<p>After authentication, return to Grafana automatically</p>
+</li>
+</ol>
+<p>If I was already logged into Authentik, the login step was skipped entirely.</p>
+<p>That “instant login” moment is when it really clicked—<br>
+<strong>this is what real SSO feels like.</strong></p>
+<hr>
+<h2 id="what-i-learned">What I Learned<a href="#what-i-learned" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>This project taught me far more than just how to configure a few containers.</p>
+<p>Key takeaways:</p>
+<ul>
+<li>
+<p><strong>Initialization order matters</strong> in distributed systems</p>
+</li>
+<li>
+<p><strong>Authentication protocols (OIDC/OAuth2) are extremely strict</strong></p>
+</li>
+<li>
+<p>Small configuration mismatches can completely break auth flows</p>
+</li>
+<li>
+<p>Debugging containerized applications requires reading logs carefully and understanding dependencies</p>
+</li>
+<li>
+<p>Centralized identity is a force multiplier—it simplifies everything else</p>
+</li>
+</ul>
+<p>Most importantly, I learned how to troubleshoot a system that spans multiple services, each with its own state and behavior.</p>
+<hr>
+<h2 id="whats-next">What’s Next<a href="#whats-next" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>With Grafana successfully integrated, the next steps are:</p>
+<ul>
+<li>
+<p>Extending SSO to additional services</p>
+</li>
+<li>
+<p>Introducing a reverse proxy (Traefik) to protect apps without native OIDC support</p>
+</li>
+<li>
+<p>Moving from IP-based access to clean internal domains</p>
+</li>
+<li>
+<p>Adding HTTPS for secure internal access</p>
+</li>
+</ul>
+<hr>
+<h2 id="final-thoughts">Final Thoughts<a href="#final-thoughts" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>What started as a simple annoyance—too many logins—turned into a deep dive into identity systems, authentication flows, and containerized infrastructure.</p>
+<p>This project pushed me beyond basic setup and into real-world problem solving.</p>
+<p>And that’s exactly what makes a homelab valuable:<br>
+<strong>it’s a place to build, break, and truly understand how systems work.</strong></p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/genealogy-as-intelligence-analysis/">
+                <span class="button__text">Genealogy as Intelligence Analysis</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

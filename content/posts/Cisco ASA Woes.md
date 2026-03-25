@@ -13,7 +13,7 @@ tags:
 I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I'd first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration.  I purchased this ASA in probably 2017 or 2018 and it was past end of life then (foreshadowing.....).
 
 
-!![Image Description](/images/Pasted%20image%2020251205104321.png)
+![[Pasted image 20251205104321.png]]
 
 # Configuration
 
@@ -25,14 +25,14 @@ This is where I hit my first snag, I had no idea what I set the username and pas
 
 I assumed that this would be the hardest part.....
 
-!![Image Description](/images/Pasted%20image%2020251205105607.png)
+![[Pasted image 20251205105607.png]]
 
 
 ## Interface Setup
 
 From here, I set an IP address on one of the Ethernet ports and connected a laptop to that port. I setup the laptop on the same subnet and pinged the ASA successfully. I then enabled the http server on the ASA to enable access to the web GUI.
 
-!![Image Description](/images/Pasted%20image%2020251205105723.png)
+![[Pasted image 20251205105723.png]]
 
 ## Disaster Strikes
 

@@ -5,4 +5,4 @@ draft: true
 tags:
   - blog
 ---
-!![Image Description](/images/Pasted%20image%2020251225143434.png)
+![[Pasted image 20251225143434.png]]

@@ -14,7 +14,7 @@ I wanted to add Wind simulation to my Sim Racing setup. As you speed up/down you
 Software and hardware designs already exist for this, but they require that you build your own interface using an Arduino. 
 [SimHub](https://www.simhubdash.com/) is the software that most people use to integrate Arduino microcontrollers with sim racing software titles. SimHub allows you to choose and configure the type of Arduino you would like to use and automatically generates the Arduino Sketch file to interface with the hardware setup. The following image shows the Arduino design for a 2 fan setup using an [Arduino ProMicro](https://www.amazon.com/ATmega32U4-Micro-USB-Development-Compatible-ATmega328/dp/B07PHK8SMR). 
 
-!![Image Description](/images/Pasted%20image%2020251201110508.png)
+![[Pasted image 20251201110508.png]]
 
 # Design
 
@@ -23,21 +23,21 @@ I implemented this design on some protoboard and got a working protype. The fans
 
 
 
-!![Image Description](/images/Pasted%20image%2020251201110047.jpg)
+![[Pasted image 20251201110047.jpg]]
 
 
 
 
 The Prototype worked very well, but was not what I would consider pretty. So I took this as an opportunity to learn how to use some PCB design software. For this project I used [EasyEDA](https://easyeda.com/)to design the PCB and [PCBWay](https://www.pcbway.com/)to manufacture the boards. The image below is the schematic design of the board. 
 
-!![Image Description](/images/Pasted%20image%2020251201113215.png)
+![[Pasted image 20251201113215.png]]
 
 This is the actual board layout with routing complete. 
 
-!![Image Description](/images/Pasted%20image%2020251201113244.png)
+![[Pasted image 20251201113244.png]]
 
 After routing was complete, I exported the Gerber files for the design and submitted them to PCBWay for manufacture. 
 
-!![Image Description](/images/Pasted%20image%2020251201110056.jpg)
+![[Pasted image 20251201110056.jpg]]
 
 In a future post, I will populate the board and test it. 

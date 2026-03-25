@@ -14,7 +14,7 @@ Yesterday morning, I had discovered that my automatic feeder on my aquarium had 
 
 I initially thought that the gear mechanism had just gotten misaligned or stuck, I disassembled the feeder and reset the gears so that everything was in the correct initial state. Upon testing I ended up with the same result. This now meant that I had to figure out how the feeder knows when to retract the hopper back to the initial state at the end of the feed cycle. 
 
-!![Image Description](/images/Pasted%20image%2020260205104736.png)
+![[Pasted image 20260205104736.png]]
 
 ## How it works
 
@@ -27,7 +27,7 @@ By watching the how the feeder behaved, I could tell that whatever signal it rec
 
 
 
-!![Image Description](/images/Pasted%20image%2020260205104930.png)!![Image Description](/images/Pasted%20image%2020260205104852.png)!![Image Description](/images/Pasted%20image%2020260205104947.png)
+![[Pasted image 20260205104930.png]]![[Pasted image 20260205104852.png]]![[Pasted image 20260205104947.png]]
 ## The Failure
 
 The Optical Light Sensor had failed, I could tell just by looking at it, the legs were corroded (years of use in a moist salty environment will do that). 

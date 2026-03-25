@@ -1,8 +1,8 @@
 # PowerShell Script for Windows
 
 # Set variables for Obsidian to Hugo copy
-$sourcePath = "C:\Users\Miles\Documents\Obsidian Vault\posts"
-$destinationPath = "C:\Users\Miles\Documents\milesblog\content\posts"
+$sourcePath = "C:\Users\miles\Documents\Obsidian Vault\posts"
+$destinationPath = "C:\Users\miles\Documents\milesblog\content\posts"
 
 # Set Github repo 
 $myrepo = "git@github.com:mil3sdavis/milesblog.git"

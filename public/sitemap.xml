@@ -3,10 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>/</loc>
-    <lastmod>2026-02-11T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/blog/</loc>
-    <lastmod>2026-02-11T00:00:00+00:00</lastmod>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/building-single-sign-on-for-my-homelab-with-authentik-and-grafana/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/homelab/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/network/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2026-03-25T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/genealogy/</loc>
     <lastmod>2026-02-11T00:00:00+00:00</lastmod>
@@ -15,12 +30,6 @@
     <lastmod>2026-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/intel/</loc>
-    <lastmod>2026-02-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/posts/</loc>
-    <lastmod>2026-02-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2026-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/aquarium/</loc>
@@ -48,9 +57,6 @@
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/hardware/</loc>
-    <lastmod>2025-12-05T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/homelab/</loc>
     <lastmod>2025-12-05T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/posts/pcb-project-part-2/</loc>

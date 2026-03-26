@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title> Building a Real-Time Aircraft Tracker in My Homelab :: </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content=" ✈️ Building a Real-Time Aircraft Tracker in My Homelab Turning a Raspberry Pi and some containers into a live aviation dashboard 🧠 Introduction One of the things I enjoy most about running a homelab is taking random pieces of technology and turning them into something genuinely useful (or at least really cool).
+Recently, I set out to build a system that could answer a simple question:
+“What aircraft is closest to my house right now?” That question turned into a full-blown project involving:
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="/posts/building-a-real-time-aircraft-tracker-in-my-homelab/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/img/theme-colors/blue.png">
+  <link rel="apple-touch-icon" href="/img/theme-colors/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content=" Building a Real-Time Aircraft Tracker in My Homelab">
+<meta property="og:description" content=" ✈️ Building a Real-Time Aircraft Tracker in My Homelab Turning a Raspberry Pi and some containers into a live aviation dashboard 🧠 Introduction One of the things I enjoy most about running a homelab is taking random pieces of technology and turning them into something genuinely useful (or at least really cool).
+Recently, I set out to build a system that could answer a simple question:
+“What aircraft is closest to my house right now?” That question turned into a full-blown project involving:
+" />
+<meta property="og:url" content="/posts/building-a-real-time-aircraft-tracker-in-my-homelab/" />
+<meta property="og:site_name" content="" />
+
+  
+    <meta property="og:image" content="/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-03-26 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</head>
+<body class="blue">
+
+
+
+
+<div class="container full headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/building-a-real-time-aircraft-tracker-in-my-homelab/">Building a Real-Time Aircraft Tracker in My Homelab</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-03-26</time>
+    
+<span class="post-reading-time">4 min read (851 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/blog/">blog</a>&nbsp;
+      
+      #<a href="/tags/homelab/">homelab</a>&nbsp;
+      
+      #<a href="/tags/network/">network</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+
+  
+
+  <div class="post-content"><div>
+        <hr>
+<h1 id="-building-a-real-time-aircraft-tracker-in-my-homelab">✈️ Building a Real-Time Aircraft Tracker in My Homelab<a href="#-building-a-real-time-aircraft-tracker-in-my-homelab" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<h2 id="turning-a-raspberry-pi-and-some-containers-into-a-live-aviation-dashboard">Turning a Raspberry Pi and some containers into a live aviation dashboard<a href="#turning-a-raspberry-pi-and-some-containers-into-a-live-aviation-dashboard" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<hr>
+<h2 id="-introduction">🧠 Introduction<a href="#-introduction" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>One of the things I enjoy most about running a homelab is taking random pieces of technology and turning them into something genuinely useful (or at least really cool).</p>
+<p>Recently, I set out to build a system that could answer a simple question:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>“What aircraft is closest to my house right now?”
+</span></span></code></pre></div><p>That question turned into a full-blown project involving:</p>
+<ul>
+<li>
+<p>a Raspberry Pi pulling real-time aircraft data</p>
+</li>
+<li>
+<p>a time-series database</p>
+</li>
+<li>
+<p>custom data transformations</p>
+</li>
+<li>
+<p>and a Grafana dashboard showing live results</p>
+</li>
+</ul>
+<p>Along the way, I also improved my overall homelab setup—working with Docker, reverse proxies, DNS, and system monitoring.</p>
+<hr>
+<h2 id="-the-homelab-foundation">🏠 The Homelab Foundation<a href="#-the-homelab-foundation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>My setup is built around an older desktop that I repurposed as a home server. It’s not cutting-edge hardware, but it’s more than capable of running multiple services using Docker.</p>
+<p>On top of that, I’ve layered a few core components:</p>
+<ul>
+<li>
+<p><strong>Pi-hole</strong> for network-wide ad blocking and DNS control</p>
+</li>
+<li>
+<p><strong>Nginx</strong> as a reverse proxy for clean internal service URLs</p>
+</li>
+<li>
+<p><strong>Uptime Kuma</strong> for monitoring and alerting</p>
+</li>
+<li>
+<p><strong>SSH with key-based authentication</strong> for secure remote access</p>
+</li>
+</ul>
+<p>This gives me a flexible platform to spin up new services and experiment freely.</p>
+<hr>
+<h2 id="-capturing-aircraft-data-ads-b">📡 Capturing Aircraft Data (ADS-B)<a href="#-capturing-aircraft-data-ads-b" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The heart of the project is a Raspberry Pi running ADS-B software.</p>
+<p>Aircraft continuously broadcast telemetry such as:</p>
+<ul>
+<li>
+<p>position (latitude/longitude)</p>
+</li>
+<li>
+<p>altitude</p>
+</li>
+<li>
+<p>speed</p>
+</li>
+<li>
+<p>identification codes</p>
+</li>
+</ul>
+<p>Using an antenna and ADS-B feeder software, I’m able to capture this data locally and expose it via:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>http://&lt;pi-ip&gt;:8080/data/aircraft.json
+</span></span></code></pre></div><p>This endpoint returns a constantly updating JSON feed of nearby aircraft.</p>
+<hr>
+<h2 id="-building-the-data-pipeline">📈 Building the Data Pipeline<a href="#-building-the-data-pipeline" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Once I had the data source, the next step was figuring out how to store and analyze it.</p>
+<p>I ended up with this pipeline:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>ADS-B (Pi) → Telegraf → InfluxDB → Grafana
+</span></span></code></pre></div><h3 id="influxdb">InfluxDB<a href="#influxdb" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>I used InfluxDB as a time-series database to store aircraft telemetry over time.</p>
+<p>Getting this working involved:</p>
+<ul>
+<li>
+<p>configuring organizations and buckets</p>
+</li>
+<li>
+<p>generating API tokens</p>
+</li>
+<li>
+<p>debugging authentication issues (plenty of 401 errors…)</p>
+</li>
+</ul>
+<h3 id="telegraf">Telegraf<a href="#telegraf" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Telegraf pulls the JSON feed and writes structured data into InfluxDB.</p>
+<p>This step was crucial for turning raw JSON into something queryable.</p>
+<hr>
+<h2 id="-making-sense-of-the-data-flux">🧠 Making Sense of the Data (Flux)<a href="#-making-sense-of-the-data-flux" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Raw data isn’t very useful on its own. The real value came from writing <strong>Flux queries</strong> to transform it.</p>
+<p>Some of the key things I implemented:</p>
+<h3 id="-aircraft-count">✈️ Aircraft Count<a href="#-aircraft-count" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>How many aircraft are nearby at any given moment.</p>
+<h3 id="-altitude-filtering">🛫 Altitude Filtering<a href="#-altitude-filtering" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Filtering out high-altitude aircraft to focus on more interesting local traffic.</p>
+<h3 id="-deduplication">🔄 Deduplication<a href="#-deduplication" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Each aircraft sends multiple messages, so I had to:</p>
+<ul>
+<li>
+<p>group by aircraft (<code>hex</code>)</p>
+</li>
+<li>
+<p>select only the most recent data point</p>
+</li>
+</ul>
+<h3 id="-distance-calculation">📍 Distance Calculation<a href="#-distance-calculation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>This was the most interesting part.</p>
+<p>Using my home’s latitude and longitude, I calculated an approximate distance to each aircraft and sorted them by proximity.</p>
+<hr>
+<h2 id="-visualizing-everything-with-grafana">📊 Visualizing Everything with Grafana<a href="#-visualizing-everything-with-grafana" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>With the data flowing and queries working, I built out dashboards in Grafana.</p>
+<h3 id="key-panels">Key Panels<a href="#key-panels" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h4 id="-aircraft-count-1">✈️ Aircraft Count<a href="#-aircraft-count-1" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>A simple stat panel showing how many planes are nearby.</p>
+<h4 id="-aircraft-over-time">📈 Aircraft Over Time<a href="#-aircraft-over-time" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>A time-series graph showing traffic patterns.</p>
+<h4 id="-low-flying-aircraft">🛫 Low Flying Aircraft<a href="#-low-flying-aircraft" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>A filtered view highlighting planes below a certain altitude.</p>
+<h4 id="-closest-aircraft-my-favorite">🔥 Closest Aircraft (My Favorite)<a href="#-closest-aircraft-my-favorite" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
+<p>A stat panel that shows:</p>
+<ul>
+<li>
+<p>the closest aircraft to my house</p>
+</li>
+<li>
+<p>its distance in miles</p>
+</li>
+<li>
+<p>its identifier (hex code for now)</p>
+</li>
+</ul>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Aircraft: AC60EF  
+</span></span><span style="display:flex;"><span>Distance: 0.26 mi
+</span></span></code></pre></div><hr>
+<h2 id="-cleaning-up-the-dashboard">🧹 Cleaning Up the Dashboard<a href="#-cleaning-up-the-dashboard" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>A surprising amount of work went into making the dashboard readable:</p>
+<ul>
+<li>
+<p>fixing messy field names (<code>_value</code>, etc.)</p>
+</li>
+<li>
+<p>removing duplicate rows</p>
+</li>
+<li>
+<p>reordering columns</p>
+</li>
+<li>
+<p>rounding values</p>
+</li>
+<li>
+<p>adding units and thresholds</p>
+</li>
+</ul>
+<p>Grafana is powerful, but getting clean visuals takes some effort.</p>
+<hr>
+<h2 id="-challenges-along-the-way">⚠️ Challenges Along the Way<a href="#-challenges-along-the-way" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>This project definitely wasn’t plug-and-play.</p>
+<h3 id="-resource-limits">💻 Resource Limits<a href="#-resource-limits" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Running a full ROM library scan (RomM) at the same time as this project:</p>
+<ul>
+<li>
+<p>maxed out CPU</p>
+</li>
+<li>
+<p>filled RAM</p>
+</li>
+<li>
+<p>triggered alerts</p>
+</li>
+</ul>
+<p>Lesson learned: <strong>resource management matters</strong>, especially on older hardware.</p>
+<hr>
+<h3 id="-influxdb-authentication">🔐 InfluxDB Authentication<a href="#-influxdb-authentication" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>I ran into multiple issues with:</p>
+<ul>
+<li>
+<p>incorrect tokens</p>
+</li>
+<li>
+<p>mismatched organization names</p>
+</li>
+</ul>
+<p>Result: lots of <code>401 Unauthorized</code> errors until everything lined up exactly.</p>
+<hr>
+<h3 id="-flux-query-quirks">🧮 Flux Query Quirks<a href="#-flux-query-quirks" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Flux is powerful—but also finicky.</p>
+<p>I ran into:</p>
+<ul>
+<li>
+<p>grouping issues</p>
+</li>
+<li>
+<p>time column problems</p>
+</li>
+<li>
+<p>math expression parsing errors</p>
+</li>
+</ul>
+<p>A lot of the work was figuring out how to structure queries correctly.</p>
+<hr>
+<h2 id="-what-i-built">🚀 What I Built<a href="#-what-i-built" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>At the end of all this, I now have:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>A self-hosted system that tracks aircraft in real time,
+</span></span><span style="display:flex;"><span>analyzes their proximity to my location,
+</span></span><span style="display:flex;"><span>and displays the results in a live dashboard.
+</span></span></code></pre></div><p>It’s one of those projects that’s both:</p>
+<ul>
+<li>
+<p>technically valuable</p>
+</li>
+<li>
+<p>and just plain fun to watch</p>
+</li>
+</ul>
+<hr>
+<h2 id="-whats-next">🔮 What’s Next<a href="#-whats-next" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>There’s plenty of room to expand this:</p>
+<ul>
+<li>
+<p>Replace hex codes with real <strong>flight numbers / airline names</strong></p>
+</li>
+<li>
+<p>Add a <strong>map visualization</strong> of aircraft</p>
+</li>
+<li>
+<p>Trigger <strong>alerts when planes get very close</strong></p>
+</li>
+<li>
+<p>Upgrade my server hardware</p>
+</li>
+<li>
+<p>Improve my network stack</p>
+</li>
+</ul>
+<hr>
+<h2 id="-final-thoughts">😄 Final Thoughts<a href="#-final-thoughts" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>This project is a great example of why I enjoy running a homelab:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>You start with a simple idea,
+</span></span><span style="display:flex;"><span>and it turns into a full system involving networking,
+</span></span><span style="display:flex;"><span>data engineering, and visualization.
+</span></span></code></pre></div><p>And at the end of it, you get something genuinely cool:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>A live view of the sky above your house.
+</span></span></code></pre></div>
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/building-single-sign-on-for-my-homelab-with-authentik-and-grafana/">
+                <span class="button__text">Building Single Sign-On for My Homelab with Authentik and Grafana</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

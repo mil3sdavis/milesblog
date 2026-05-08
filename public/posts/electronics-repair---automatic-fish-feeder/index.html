@@ -145,7 +145,7 @@ I initially thought that the gear mechanism had just gotten misaligned or stuck,
   </h1>
   <div class="post-meta"><time class="post-date">2026-02-05</time>
     
-<span class="post-reading-time">3 min read (625 words)</span></div>
+<span class="post-reading-time">3 min read (617 words)</span></div>
 
   
     <span class="post-tags">
@@ -170,11 +170,11 @@ I initially thought that the gear mechanism had just gotten misaligned or stuck,
         <h2 id="the-problem">The Problem<a href="#the-problem" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Yesterday morning, I had discovered that my automatic feeder on my aquarium had dumped its entire hopper in the aquarium (not a big deal, it was almost empty), and was unable to retract the hopper to the original position. I initiated a manual feed via a button on the back, and the hopper would just spin and never return to initial start position.</p>
 <p>I initially thought that the gear mechanism had just gotten misaligned or stuck, I disassembled the feeder and reset the gears so that everything was in the correct initial state. Upon testing I ended up with the same result. This now meant that I had to figure out how the feeder knows when to retract the hopper back to the initial state at the end of the feed cycle.</p>
-<p>![[Pasted image 20260205104736.png]]</p>
+<p>!<img src="/images/Pasted%20image%2020260205104736.png" alt="Image Description"></p>
 <h2 id="how-it-works">How it works<a href="#how-it-works" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>The motor, while spinning in one direction performs a feed cycle by pushing the hopper out of the housing, and rotating it a preprogrammed number of revolutions causing it to release food from a slot in the bottom of it. When the motor spins in the opposite direction it retracts the hopper back into the housing.</p>
 <p>By watching the how the feeder behaved, I could tell that whatever signal it receives to tell the motor to stop and reverse direction was not being received. The gearing mechanism that extends/retracts and rotates the hopper has a tab on it that passes through an optical sensor (Data Sheet: <a href="https://www.vishay.com/docs/83763/tcst1030.pdf%29">https://www.vishay.com/docs/83763/tcst1030.pdf)</a>. The sensor uses an infrared LED and a phototransistor, the tab on the gearing mechanism passes through the gap between the LED and the phototransistor blocking the light. This is how the device knows how many times the hopper has rotated (each rotation results in the phototransistor being blocked once ), when the preprogrammed number of revolutions has occurred (in this case, two), the device reverses the polarity of the power to the motor causing it to turn in reverse and retract the hopper.</p>
-<p>![[Pasted image 20260205104930.png]]![[Pasted image 20260205104852.png]]![[Pasted image 20260205104947.png]]</p>
+<p>!<img src="/images/Pasted%20image%2020260205104930.png" alt="Image Description">!<img src="/images/Pasted%20image%2020260205104852.png" alt="Image Description">!<img src="/images/Pasted%20image%2020260205104947.png" alt="Image Description"></p>
 <h2 id="the-failure">The Failure<a href="#the-failure" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>The Optical Light Sensor had failed, I could tell just by looking at it, the legs were corroded (years of use in a moist salty environment will do that).</p>
 <h2 id="the-fix">The Fix<a href="#the-fix" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>

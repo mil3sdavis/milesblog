@@ -20,7 +20,7 @@ The heart of my setup is the Icom IC-7300, paired with an MFJ-993B automatic tun
 
 I wanted something that would perform well across multiple HF bands without requiring a massive footprint. A multiband vertical checked all the boxes—but as I quickly learned, the antenna itself is only half the story.
 
-![[Pasted image 20260508191159.png]]
+!![Image Description](/images/Pasted%20image%2020260508191159.png)
 ---
 
 ## The Real Work: Radials, Radials, Radials
@@ -44,9 +44,9 @@ It wasn’t glamorous work. It meant hours outside measuring, cutting, routing a
 
 This radial field dramatically improves efficiency—especially on the lower bands—and helps ensure that more of the transmitted energy actually radiates instead of being lost in the ground.
 
-![[Pasted image 20260508191222.png]]
+!![Image Description](/images/Pasted%20image%2020260508191222.png)
 
-![[Pasted image 20260508191236.png]]
+!![Image Description](/images/Pasted%20image%2020260508191236.png)
 ---
 
 ## Running the Feedline
@@ -95,7 +95,7 @@ A few transmission cycles later, the exchange completed successfully.
 That was it—confirmed.
 
 A low-power digital signal, sent from a vertical antenna in my backyard, had made it across the Atlantic and into Africa.
-![[Pasted image 20260508191450.png]]
+!![Image Description](/images/Pasted%20image%2020260508191450.png)
 
 ---
 

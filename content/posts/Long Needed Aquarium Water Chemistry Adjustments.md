@@ -28,10 +28,10 @@ This post is about the multiday process of fixing this problem.
 9. Repeat steps 6-8 until a stable daily value is achieved
 
 
-![[Pasted image 20251213102645.png]]
+!![Image Description](/images/Pasted%20image%2020251213102645.png)
 
 
-![[Pasted image 20251213102700.png]]
+!![Image Description](/images/Pasted%20image%2020251213102700.png)
 
 
 # Calculation
@@ -53,9 +53,9 @@ As you can see from the graph of the Alkalinity level, the value was sitting at 
 
 `Daily Dose Amount = ((9.5dKH - 8.4dkH)) / 0.005g/mL (*Liquid Sodium Bicarbinate*)  = 212m/L per day`
 
-![[Pasted image 20251213105633.png]]
+!![Image Description](/images/Pasted%20image%2020251213105633.png)
 
 The same approach was taken with the Ca level, but I am still in the process of monitoring the Ca level over the course of a few days to ensure the dosage is correct. I do not automatically dose Mg as the values normally remain fairly stable, if adjustments are needed, I manually dose an amount using the same calculation.
 
 
-![[Pasted image 20251213105701.png]]
+!![Image Description](/images/Pasted%20image%2020251213105701.png)

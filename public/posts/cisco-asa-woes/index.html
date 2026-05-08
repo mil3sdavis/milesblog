@@ -143,7 +143,7 @@
   </h1>
   <div class="post-meta"><time class="post-date">2025-12-05</time>
     
-<span class="post-reading-time">4 min read (693 words)</span></div>
+<span class="post-reading-time">4 min read (687 words)</span></div>
 
   
     <span class="post-tags">
@@ -167,16 +167,16 @@
   <div class="post-content"><div>
         <h1 id="cisco-asa-5510">Cisco ASA 5510<a href="#cisco-asa-5510" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>I need to brush up on my networking skills, so I thought that I would dig out the old hardware that I purchased back when I initially got my CCNA certification. I figured I&rsquo;d first start with this ASA Firewall since many job listing I have been seeing for Network Engineer jobs have mentioned firewall configuration.  I purchased this ASA in probably 2017 or 2018 and it was past end of life then (foreshadowing&hellip;..).</p>
-<p>![[Pasted image 20251205104321.png]]</p>
+<p>!<img src="/images/Pasted%20image%2020251205104321.png" alt="Image Description"></p>
 <h1 id="configuration">Configuration<a href="#configuration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
 <p>I plugged the ASA into power and connected a Cisco console cable to it, I ran the other end of the console cable through an RS232 to USB adapter and opened up PuTTY. After adjusting the serial settings I was able to easily get to the login prompt.</p>
 <h2 id="logging-in">Logging In<a href="#logging-in" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>This is where I hit my first snag, I had no idea what I set the username and password to 7 or 8 years ago&hellip;. So I had to do a factory reset on the ASA which isn&rsquo;t incredibly difficult but not something that is super intuitive. I had to interrupt the boot sequence and get into the ROM Monitor (ROMmon) mode and change the configuration register for the boot sequence telling it to ignore current config on the device. From there I was able to reboot it with no loaded config, delete the stored config and then start from scratch.</p>
 <p>I assumed that this would be the hardest part&hellip;..</p>
-<p>![[Pasted image 20251205105607.png]]</p>
+<p>!<img src="/images/Pasted%20image%2020251205105607.png" alt="Image Description"></p>
 <h2 id="interface-setup">Interface Setup<a href="#interface-setup" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>From here, I set an IP address on one of the Ethernet ports and connected a laptop to that port. I setup the laptop on the same subnet and pinged the ASA successfully. I then enabled the http server on the ASA to enable access to the web GUI.</p>
-<p>![[Pasted image 20251205105723.png]]</p>
+<p>!<img src="/images/Pasted%20image%2020251205105723.png" alt="Image Description"></p>
 <h2 id="disaster-strikes">Disaster Strikes<a href="#disaster-strikes" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>I attempted to visit the web GUI in my browser, only to be greeted with an SSL/TLS mismatch error&hellip;. uh oh.  A quick web search revealed that this version of the ASA firmware only supports TLS 1.0 and the only fix is a firmware upgrade. Well that seems easy&hellip;. except Cisco doesn&rsquo;t just give out firmware files, and even if I still had an account with them that had access to updates, it would appear that they no longer have the files available for this ASA because it is soo old (eol was in 2018).</p>
 <p>I was about to give up, but remembered that I had a laptop that hasn&rsquo;t been booted up in almost as long as this ASA and though maybe it might work to access the web GUI. I set that laptop up, attempted to access the web GUI in Chrome and received the same error. Then I realized that this laptop still had Internet Explorer on it. I tried in IE, it allowed me to load the page after choosing to ignore the certificate errors&hellip;.. At this point I thought my problems were solved.</p>

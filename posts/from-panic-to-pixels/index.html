@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>From Panic to Pixels: Migrating My NAS and Recovering an Immich Library the Hard Way :: </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="From Panic to Pixels: Migrating My NAS and Recovering an Immich Library the Hard Way I recently upgraded my homelab storage to a new NAS, and like any good plan, it worked perfectly… right up until it didn’t.
+What started as a straightforward data migration turned into a deep dive into Docker, PostgreSQL, and how modern apps actually store data. In the end, I recovered everything—but not before learning a few lessons the hard way.
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="/posts/from-panic-to-pixels/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/img/theme-colors/blue.png">
+  <link rel="apple-touch-icon" href="/img/theme-colors/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="From Panic to Pixels: Migrating My NAS and Recovering an Immich Library the Hard Way">
+<meta property="og:description" content="From Panic to Pixels: Migrating My NAS and Recovering an Immich Library the Hard Way I recently upgraded my homelab storage to a new NAS, and like any good plan, it worked perfectly… right up until it didn’t.
+What started as a straightforward data migration turned into a deep dive into Docker, PostgreSQL, and how modern apps actually store data. In the end, I recovered everything—but not before learning a few lessons the hard way.
+" />
+<meta property="og:url" content="/posts/from-panic-to-pixels/" />
+<meta property="og:site_name" content="" />
+
+  
+    <meta property="og:image" content="/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-04-20 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</head>
+<body class="blue">
+
+
+
+
+<div class="container full headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/from-panic-to-pixels/">From Panic to Pixels: Migrating My NAS and Recovering an Immich Library the Hard Way</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-04-20</time>
+    
+<span class="post-reading-time">3 min read (578 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/blog/">blog</a>&nbsp;
+      
+      #<a href="/tags/homelab/">homelab</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="from-panic-to-pixels-migrating-my-nas-and-recovering-an-immich-library-the-hard-way">From Panic to Pixels: Migrating My NAS and Recovering an Immich Library the Hard Way<a href="#from-panic-to-pixels-migrating-my-nas-and-recovering-an-immich-library-the-hard-way" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>I recently upgraded my homelab storage to a new NAS, and like any good plan, it worked perfectly… right up until it didn’t.</p>
+<p>What started as a straightforward data migration turned into a deep dive into Docker, PostgreSQL, and how modern apps actually store data. In the end, I recovered everything—but not before learning a few lessons the hard way.</p>
+<hr>
+<h2 id="the-goal">The Goal<a href="#the-goal" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<ul>
+<li>
+<p>Move ~6.5TB of data from an old Ubuntu-based NAS</p>
+</li>
+<li>
+<p>Stand up a new Unraid system (UGreen DXP4800 Plus)</p>
+</li>
+<li>
+<p>Migrate services like Plex and Immich cleanly</p>
+</li>
+</ul>
+<p>Simple enough… in theory.</p>
+<hr>
+<h2 id="step-1-moving-the-data">Step 1: Moving the Data<a href="#step-1-moving-the-data" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>I used <code>rsync</code> over SSH to transfer everything:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>rsync -avh --progress /old/media/ /mnt/user/media/
+</span></span></code></pre></div><p>After fixing a bad Ethernet cable (don’t underestimate layer 1), I was getting ~100MB/s, and the transfer completed without issues.</p>
+<hr>
+<h2 id="step-2-rebuilding-the-stack">Step 2: Rebuilding the Stack<a href="#step-2-rebuilding-the-stack" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>On the new NAS:</p>
+<ul>
+<li>
+<p>Installed Unraid</p>
+</li>
+<li>
+<p>Set up shares (<code>media</code>, <code>appdata</code>)</p>
+</li>
+<li>
+<p>Deployed Immich using Docker Compose</p>
+</li>
+</ul>
+<p>Everything came up clean. Containers were running. UI loaded.</p>
+<p>Then I opened Immich…</p>
+<p>👉 <strong>“Create Admin Account”</strong></p>
+<hr>
+<h2 id="step-3-the-oh-no-moment">Step 3: The “Oh No” Moment<a href="#step-3-the-oh-no-moment" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>No photos. No albums. Nothing.</p>
+<p>But I <em>knew</em> the data was there.</p>
+<p>That’s when I learned a critical truth:</p>
+<blockquote>
+<p>Apps like Immich don’t just read files—they rely heavily on a database.</p>
+</blockquote>
+<hr>
+<h2 id="step-4-understanding-immich-storage">Step 4: Understanding Immich Storage<a href="#step-4-understanding-immich-storage" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Immich doesn’t store photos in a human-readable way. Instead, it uses:</p>
+<ul>
+<li>
+<p>Hashed directories</p>
+</li>
+<li>
+<p>UUID-based storage</p>
+</li>
+<li>
+<p>Metadata stored entirely in PostgreSQL</p>
+</li>
+</ul>
+<p>So while my files existed, they were effectively meaningless without the database.</p>
+<hr>
+<h2 id="step-5-hunting-down-the-database">Step 5: Hunting Down the Database<a href="#step-5-hunting-down-the-database" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>I initially copied what I <em>thought</em> was the database directory, but something felt off.</p>
+<p>Eventually, I found the real one:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>/home/miles/immich-app/postgres
+</span></span></code></pre></div><p>From there, I:</p>
+<ol>
+<li>
+<p>Stopped the Immich stack</p>
+</li>
+<li>
+<p>Wiped the new Postgres data directory</p>
+</li>
+<li>
+<p>Copied the old database over with <code>rsync</code></p>
+</li>
+<li>
+<p>Fixed permissions (<code>chown -R 999:999</code>)</p>
+</li>
+<li>
+<p>Restarted the stack</p>
+</li>
+</ol>
+<hr>
+<h2 id="step-6-more-problems-because-of-course">Step 6: More Problems (Because of Course)<a href="#step-6-more-problems-because-of-course" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>After restoring the DB:</p>
+<ul>
+<li>
+<p>Containers started rebooting</p>
+</li>
+<li>
+<p>Postgres authentication kept failing</p>
+</li>
+</ul>
+<p>Turns out:</p>
+<ul>
+<li>
+<p>The database had its own internal password</p>
+</li>
+<li>
+<p>My <code>.env</code> file didn’t match it</p>
+</li>
+</ul>
+<p>I had to reset the password inside Postgres to align everything.</p>
+<hr>
+<h2 id="step-7-the-unexpected-hero">Step 7: The Unexpected Hero<a href="#step-7-the-unexpected-hero" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>After all that… Immich still showed a “Restore Database” option.</p>
+<p>I clicked it (against my better judgment 😄)</p>
+<p>👉 And it worked.</p>
+<p>Immich had been quietly creating nightly backups of the database, and I was able to restore from one of those.</p>
+<hr>
+<h2 id="step-8-everything-comes-back">Step 8: Everything Comes Back<a href="#step-8-everything-comes-back" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Suddenly:</p>
+<ul>
+<li>
+<p>Timeline populated</p>
+</li>
+<li>
+<p>Albums restored</p>
+</li>
+<li>
+<p>Metadata intact</p>
+</li>
+<li>
+<p>Face recognition data preserved</p>
+</li>
+</ul>
+<p>Total recovery.</p>
+<hr>
+<h2 id="lessons-learned">Lessons Learned<a href="#lessons-learned" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="1-files--data">1. Files ≠ Data<a href="#1-files--data" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Modern apps rely on databases. Without them, your files may be useless.</p>
+<h3 id="2-always-migrate-database--storage-together">2. Always Migrate Database + Storage Together<a href="#2-always-migrate-database--storage-together" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>If you move one without the other, things break in weird ways.</p>
+<h3 id="3-check-the-actual-data-paths">3. Check the <em>Actual</em> Data Paths<a href="#3-check-the-actual-data-paths" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Configs don’t always match reality. Verify where things really live.</p>
+<h3 id="4-permissions-matter">4. Permissions Matter<a href="#4-permissions-matter" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Docker + Linux permissions can silently break everything.</p>
+<h3 id="5-backups-are-everything">5. Backups Are Everything<a href="#5-backups-are-everything" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Immich’s built-in DB backups saved me. Period.</p>
+<hr>
+<h2 id="what-id-do-differently">What I’d Do Differently<a href="#what-id-do-differently" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<ul>
+<li>
+<p>Backup the database explicitly before migrating</p>
+</li>
+<li>
+<p>Validate the DB path before copying</p>
+</li>
+<li>
+<p>Test restore before wiping the old system</p>
+</li>
+</ul>
+<hr>
+<h2 id="final-thoughts">Final Thoughts<a href="#final-thoughts" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>What started as a routine NAS upgrade turned into a full-on recovery exercise. But in the process, I gained a much deeper understanding of how my stack actually works.</p>
+<p>And more importantly…</p>
+<p>👉 I didn’t lose a single photo.</p>
+<hr>
+<p>If you’re running services like Immich, Plex, or anything database-driven:</p>
+<p><strong>Don’t just back up your files—back up your data.</strong></p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/posts/from-backyard-wire-to-africa/">
+                <span class="button__icon">←</span>
+                <span class="button__text">From Backyard Wire to Africa</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="/posts/building-a-real-time-aircraft-tracker-in-my-homelab/">
+                <span class="button__text"> Building a Real-Time Aircraft Tracker in My Homelab</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

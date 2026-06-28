@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>Finding The Time :: </title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Building a DIY GPS-Disciplined Oscillator (GPSDO) for a Stratum-1 NTP Server - Part 1 Over the past few weeks I&rsquo;ve been experimenting with building a Stratum-1 NTP server and, as often happens with hobby electronics projects, the scope has grown significantly.
+The original goal was fairly straightforward: use an ESP32 and GPS receiver to provide accurate network time to my home lab. The project started with a HackerBox GPS module and quickly evolved into a deep dive into NTP, PPS timing signals, GPS receivers, oscilloscopes, DACs, and oven-controlled crystal oscillators (OCXOs).
+" />
+<meta name="keywords" content="" />
+
+  <meta name="robots" content="noodp" />
+
+<link rel="canonical" href="/posts/finding-the-time/" />
+
+
+
+
+
+
+
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="/styles.css">
+
+
+
+
+
+
+
+  <link rel="shortcut icon" href="/img/theme-colors/blue.png">
+  <link rel="apple-touch-icon" href="/img/theme-colors/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Finding The Time">
+<meta property="og:description" content="Building a DIY GPS-Disciplined Oscillator (GPSDO) for a Stratum-1 NTP Server - Part 1 Over the past few weeks I&rsquo;ve been experimenting with building a Stratum-1 NTP server and, as often happens with hobby electronics projects, the scope has grown significantly.
+The original goal was fairly straightforward: use an ESP32 and GPS receiver to provide accurate network time to my home lab. The project started with a HackerBox GPS module and quickly evolved into a deep dive into NTP, PPS timing signals, GPS receivers, oscilloscopes, DACs, and oven-controlled crystal oscillators (OCXOs).
+" />
+<meta property="og:url" content="/posts/finding-the-time/" />
+<meta property="og:site_name" content="" />
+
+  
+    <meta property="og:image" content="/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+
+
+  <meta property="article:published_time" content="2026-06-27 00:00:00 &#43;0000 UTC" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+</head>
+<body class="blue">
+
+
+
+
+<div class="container full headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Blog
+  </div>
+</a>
+
+    </div>
+    
+      <ul class="menu menu--mobile">
+  <li class="menu__trigger">Menu&nbsp;▾</li>
+  <li>
+    <ul class="menu__dropdown">
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+    </ul>
+  </li>
+</ul>
+
+    
+    
+  </div>
+  
+    <nav class="navigation-menu">
+  <ul class="navigation-menu__inner menu--desktop">
+    
+      
+      
+        
+          <li><a href="/about" >About</a></li>
+        
+      
+      
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<article class="post">
+  <h1 class="post-title">
+    <a href="/posts/finding-the-time/">Finding The Time</a>
+  </h1>
+  <div class="post-meta"><time class="post-date">2026-06-27</time>
+    
+<span class="post-reading-time">3 min read (595 words)</span></div>
+
+  
+    <span class="post-tags">
+      
+      #<a href="/tags/blog/">blog</a>&nbsp;
+      
+      #<a href="/tags/%23homelab/">#homelab</a>&nbsp;
+      
+    </span>
+  
+  
+
+
+
+  
+
+  <div class="post-content"><div>
+        <h1 id="building-a-diy-gps-disciplined-oscillator-gpsdo-for-a-stratum-1-ntp-server---part-1">Building a DIY GPS-Disciplined Oscillator (GPSDO) for a Stratum-1 NTP Server - Part 1<a href="#building-a-diy-gps-disciplined-oscillator-gpsdo-for-a-stratum-1-ntp-server---part-1" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h1>
+<p>Over the past few weeks I&rsquo;ve been experimenting with building a Stratum-1 NTP server and, as often happens with hobby electronics projects, the scope has grown significantly.</p>
+<p>The original goal was fairly straightforward: use an ESP32 and GPS receiver to provide accurate network time to my home lab. The project started with a HackerBox GPS module and quickly evolved into a deep dive into NTP, PPS timing signals, GPS receivers, oscilloscopes, DACs, and oven-controlled crystal oscillators (OCXOs).</p>
+<h2 id="the-first-prototype">The First Prototype<a href="#the-first-prototype" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The initial design consisted of:</p>
+<ul>
+<li>
+<p>ESP32 development board</p>
+</li>
+<li>
+<p>Quectel L80-R GPS receiver</p>
+</li>
+<li>
+<p>PPS (Pulse Per Second) timing signal from GPS</p>
+</li>
+<li>
+<p>Web-based monitoring interface</p>
+</li>
+<li>
+<p>NTP server implementation</p>
+</li>
+</ul>
+<p>After a fair amount of troubleshooting—including GPS lock issues, serial pin configuration mistakes, and discovering a shared PPS/TFT backlight pin on the project board—I was eventually able to obtain a GPS lock and serve NTP responses across my network.</p>
+<p>Testing with <code>w32tm</code> showed the server responding correctly, although timing accuracy still had room for improvement.</p>
+<h2 id="learning-about-pps-and-ntp">Learning About PPS and NTP<a href="#learning-about-pps-and-ntp" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>One of the biggest lessons from this project was understanding how NTP actually works.</p>
+<p>Before starting, I assumed an NTP server simply distributed the current time. In reality, accurate timekeeping relies heavily on precise timing measurements and stable clock sources.</p>
+<p>The GPS receiver provides two important outputs:</p>
+<ul>
+<li>
+<p>NMEA data containing date and time information</p>
+</li>
+<li>
+<p>PPS (Pulse Per Second), a highly accurate timing pulse aligned to UTC</p>
+</li>
+</ul>
+<p>The PPS signal is what allows a system to achieve Stratum-1 accuracy.</p>
+<h2 id="the-rabbit-hole-gpsdos">The Rabbit Hole: GPSDOs<a href="#the-rabbit-hole-gpsdos" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>While researching timing accuracy, I discovered GPS-disciplined oscillators (GPSDOs).</p>
+<p>A GPSDO combines:</p>
+<ul>
+<li>
+<p>GPS timing signals</p>
+</li>
+<li>
+<p>A highly stable oven-controlled crystal oscillator (OCXO)</p>
+</li>
+<li>
+<p>A control loop that continuously corrects oscillator drift</p>
+</li>
+</ul>
+<p>The GPS signal provides long-term accuracy while the OCXO provides excellent short-term stability.</p>
+<p>This is the same principle used in professional timing equipment, telecommunications infrastructure, and laboratory frequency references.</p>
+<h2 id="new-hardware">New Hardware<a href="#new-hardware" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>To explore this further, I recently added:</p>
+<ul>
+<li>
+<p>10 MHz OCXO module</p>
+</li>
+<li>
+<p>MCP4725 12-bit DAC</p>
+</li>
+<li>
+<p>ESP32 control interface</p>
+</li>
+<li>
+<p>Oscilloscope measurements of the oscillator output</p>
+</li>
+</ul>
+<p>The DAC will eventually allow the ESP32 to make tiny adjustments to the OCXO control voltage based on timing measurements from the GPS PPS signal.</p>
+<p>The result should be a disciplined 10 MHz reference that can be used to generate an extremely stable PPS signal for a future Raspberry Pi-based Stratum-1 NTP server.</p>
+<h2 id="current-status">Current Status<a href="#current-status" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The OCXO and DAC hardware are now wired together and communicating through the ESP32. The oscillator is powered and producing a clean 10 MHz output, and the DAC is connected into the OCXO&rsquo;s frequency calibration circuit.</p>
+<p>I&rsquo;m currently waiting for a replacement GPS module after accidentally destroying the pads on the original L80-R while attempting to remove it from a development board. Fortunately, replacement modules are inexpensive and should provide an opportunity to rebuild the GPS side of the project with a cleaner design.</p>
+<p>!<img src="/images/wiring%20diagram.png" alt="Image Description"></p>
+<h2 id="whats-next">What&rsquo;s Next?<a href="#whats-next" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The next milestones are:</p>
+<ol>
+<li>
+<p>Verify DAC control of the OCXO</p>
+</li>
+<li>
+<p>Integrate the new GPS receiver</p>
+</li>
+<li>
+<p>Measure PPS timing accuracy</p>
+</li>
+<li>
+<p>Implement a GPS discipline control loop</p>
+</li>
+<li>
+<p>Generate a clean PPS signal from the disciplined oscillator</p>
+</li>
+<li>
+<p>Feed that PPS signal into a Raspberry Pi running Chrony</p>
+</li>
+</ol>
+<p>The ultimate goal is a home-built GPS-disciplined Stratum-1 NTP server capable of providing highly accurate time to my entire home lab.</p>
+<p>Whether it ends up being more educational than practical remains to be seen, but I&rsquo;ve already learned far more about GPS, timing systems, oscillators, and NTP than I ever expected when I started.</p>
+<p>And honestly, that&rsquo;s usually the best kind of project.</p>
+
+      </div></div>
+
+  
+    
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/from-backyard-wire-to-africa/">
+                <span class="button__text">From Backyard Wire to Africa</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+    
+
+  
+</article>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2026 Powered by <a href="https://gohugo.io">Hugo</a></span>
+    
+      <span>:: <a href="https://github.com/mirus-ua/hugo-theme-re-terminal" target="_blank">Theme</a> made by <a href="https://github.com/mirus-ua" target="_blank">Mirus</a></span>
+      </div>
+  </div>
+</footer>
+
+
+
+
+
+
+<script type="text/javascript" src="/bundle.min.js"></script>
+
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

@@ -1,20 +1,12 @@
 ---
 title: Finding The Time
 date: 2026-06-27
-draft: true
+draft: false
 tags:
   - blog
   - "#homelab"
 ---
 
-> [!Quote] 
-> "Life moves pretty fast. If you don't stop and look around once in a while, you could miss it."
-> 	-Ferris Bueller
-
-
-
-> [!Quote] 
-> **"The appropriate question is, 'When the hell are they?'"** — Doc Brown
 # Building a DIY GPS-Disciplined Oscillator (GPSDO) for a Stratum-1 NTP Server - Part 1 
 
 Over the past few weeks I've been experimenting with building a Stratum-1 NTP server and, as often happens with hobby electronics projects, the scope has grown significantly.
